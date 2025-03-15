@@ -20,7 +20,7 @@ const App = () => {
             element={<Home setSelectedTime={setSelectedTime} />}
           />
           <Route
-            path="/ondevaipassar-teste/time/:nome"
+            path="time/:nome"
             element={
               <TimePage
                 selectedTime={selectedTime}

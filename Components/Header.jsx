@@ -1,5 +1,3 @@
-// Header.jsx
-
 import React from "react";
 import DropdownMenu from "../Components/DropdownMenu";
 
