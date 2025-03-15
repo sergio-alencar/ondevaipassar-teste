@@ -22,7 +22,7 @@ const Header = ({ selectedTime, setSelectedTime }) => {
         <a className="" href="/ondevaipassar-teste">
           <img
             className="w-42 py-4 max-sm:w-32"
-            src="../img/icones/logo-3.svg"
+            src="./onde-vai-passar/img/icones/logo-3.svg"
             alt="Onde Vai Passar"
           />
         </a>
