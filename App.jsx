@@ -16,11 +16,11 @@ const App = () => {
         <Header selectedTime={selectedTime} />
         <Routes>
           <Route
-            path="/"
+            path="/ondevaipassar-teste"
             element={<Home setSelectedTime={setSelectedTime} />}
           />
           <Route
-            path="/time/:nome"
+            path="/ondevaipassar-teste/time/:nome"
             element={
               <TimePage
                 selectedTime={selectedTime}
