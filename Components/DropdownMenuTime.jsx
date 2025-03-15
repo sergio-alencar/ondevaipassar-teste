@@ -5,12 +5,12 @@ import { Link } from "react-router-dom";
 
 const DropdownMenuTime = ({ time, setSelectedTime }) => {
   const handleClick = () => {
-    setSelectedTime(time); // Atualiza o time selecionado
+    setSelectedTime(time);
   };
 
   return (
     <li>
-      <Link to={`/time/${time.nome}`} onClick={handleClick}>
+      <Link to={`/ondevaipassar-teste/time/${time.nome}`} onClick={handleClick}>
         <img
           className="size-10"
           src={`/img/times/${time.nome}.svg`}
