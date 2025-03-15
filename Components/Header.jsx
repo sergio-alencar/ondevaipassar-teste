@@ -11,7 +11,6 @@ const Header = ({ selectedTime, setSelectedTime }) => {
   return (
     <header className={`bg-${headerColor} sticky top-0 px-12 max-sm:px-2`}>
       <div className="flex justify-between items-center mx-12 max-sm:mx-4">
-        {/* menu */}
         <button className="flex gap-2 items-center">
           <span className="h-5 w-7 flex flex-col justify-between *:h-0.5 *:rounded-md *:bg-white">
             <span></span>
@@ -22,7 +21,7 @@ const Header = ({ selectedTime, setSelectedTime }) => {
             menu
           </p>
         </button>
-        <a className="" href="/">
+        <a className="" href="/ondevaipassar-teste">
           <img
             className="w-42 py-4 max-sm:w-32"
             src="/img/icones/logo-3.svg"

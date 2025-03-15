@@ -15,8 +15,7 @@ const Footer = ({ selectedTime }) => {
           Onde Vai Passar &copy; 2025
         </p>
 
-        {/* logo-footer */}
-        <a href="/">
+        <a href="/ondevaipassar-teste">
           <img
             className="size-16 max-sm:size-12"
             src="/img/icones/logo-2.svg"
