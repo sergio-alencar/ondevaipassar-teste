@@ -21,7 +21,7 @@ const Home = ({ setSelectedTime }) => {
           >
             <Link to={`/ondevaipassar-teste/time/${time.nome}`} className="">
               <img
-                src={`/img/times/${time.nome}.svg`}
+                src={`img/times/${time.nome}.svg`}
                 alt={`${time.nome}`}
                 title={`${time.maiusculo}`}
                 className="h-42 w-42 px-4 py-2 max-sm:h-18 max-sm:w-18 max-sm:px-2 max-sm:py-0"
