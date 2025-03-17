@@ -1,6 +1,5 @@
-// Footer.jsx
-
 import React from "react";
+import logoFooter from "/src/assets/images/icones/logo-2.svg";
 
 const Footer = ({ selectedTime }) => {
   const footerColor = selectedTime ? selectedTime.cor : "purple-900";
@@ -18,7 +17,7 @@ const Footer = ({ selectedTime }) => {
         <a href="/ondevaipassar-teste">
           <img
             className="size-16 max-sm:size-12"
-            src="/ondevaipassar-teste/assets/images/icones/logo-2.svg"
+            src={logoFooter}
             alt="Onde Vai Passar"
           />
         </a>

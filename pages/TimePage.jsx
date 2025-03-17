@@ -2,6 +2,90 @@ import React, { useEffect, useState } from "react";
 import times from "../Components/times";
 import { useParams } from "react-router-dom";
 import canais from "../Components/canais";
+import escudo from "/src/assets/images/icones/escudo.svg";
+import versus from "/src/assets/images/icones/versus.svg";
+
+// Importações das imagens dos times
+import atleticomg from "/src/assets/images/times/atleticomg.svg";
+import bahia from "/src/assets/images/times/bahia.svg";
+import botafogo from "/src/assets/images/times/botafogo.svg";
+import bragantino from "/src/assets/images/times/bragantino.svg";
+import ceara from "/src/assets/images/times/ceara.svg";
+import corinthians from "/src/assets/images/times/corinthians.svg";
+import cruzeiro from "/src/assets/images/times/cruzeiro.svg";
+import flamengo from "/src/assets/images/times/flamengo.svg";
+import fluminense from "/src/assets/images/times/fluminense.svg";
+import fortaleza from "/src/assets/images/times/fortaleza.svg";
+import gremio from "/src/assets/images/times/gremio.svg";
+import internacional from "/src/assets/images/times/internacional.svg";
+import juventude from "/src/assets/images/times/juventude.svg";
+import mirassol from "/src/assets/images/times/mirassol.svg";
+import palmeiras from "/src/assets/images/times/palmeiras.svg";
+import santos from "/src/assets/images/times/santos.svg";
+import saopaulo from "/src/assets/images/times/saopaulo.svg";
+import sport from "/src/assets/images/times/sport.svg";
+import vasco from "/src/assets/images/times/vasco.svg";
+import vitoria from "/src/assets/images/times/vitoria.svg";
+
+// Importações das imagens dos canais
+import band from "/src/assets/images/canais/band.svg";
+import cazetv from "/src/assets/images/canais/cazetv.svg";
+import disneyplus from "/src/assets/images/canais/disneyplus.svg";
+import espn from "/src/assets/images/canais/espn.svg";
+import globo from "/src/assets/images/canais/globo.svg";
+import goat from "/src/assets/images/canais/goat.svg";
+import nossofutebol from "/src/assets/images/canais/nossofutebol.svg";
+import paramountplus from "/src/assets/images/canais/paramountplus.svg";
+import premiere from "/src/assets/images/canais/premiere.svg";
+import primevideo from "/src/assets/images/canais/primevideo.svg";
+import record from "/src/assets/images/canais/record.svg";
+import sbt from "/src/assets/images/canais/sbt.svg";
+import sportv from "/src/assets/images/canais/sportv.svg";
+import tntsports from "/src/assets/images/canais/tntsports.svg";
+import youtube from "/src/assets/images/canais/youtube.svg";
+
+// Mapeamento das imagens dos times (chaves normalizadas e sem hífens)
+const imagensTimes = {
+  atleticomg, // Chave sem hífen
+  bahia,
+  botafogo,
+  bragantino,
+  ceara,
+  corinthians,
+  cruzeiro,
+  flamengo,
+  fluminense,
+  fortaleza,
+  gremio,
+  internacional,
+  juventude,
+  mirassol,
+  palmeiras,
+  santos,
+  saopaulo, // Chave sem hífen
+  sport,
+  vasco,
+  vitoria,
+};
+
+// Mapeamento das imagens dos canais (chaves normalizadas)
+const imagensCanais = {
+  band,
+  cazetv,
+  disneyplus,
+  espn,
+  globo,
+  goat,
+  nossofutebol,
+  paramountplus,
+  premiere,
+  primevideo,
+  record,
+  sbt,
+  sportv,
+  tntsports,
+  youtube,
+};
 
 const TimePage = ({ setSelectedTime }) => {
   const { nome } = useParams();
@@ -24,18 +108,15 @@ const TimePage = ({ setSelectedTime }) => {
           .toLowerCase()
           .replace(/\s+/g, "-");
 
-        console.log(`Carregando jogos para o time: ${nomeArquivo}`);
         const { jogosTime } = await import(
           `../Components/jogos/${nomeArquivo}.jsx`
         );
-        console.log("Jogos carregados:", jogosTime);
         setJogosDoTime(jogosTime || []);
       } catch (error) {
         console.error("Erro ao carregar os jogos:", error);
         setJogosDoTime([]);
       }
     };
-
     carregarJogos();
   }, [nome]);
 
@@ -43,52 +124,78 @@ const TimePage = ({ setSelectedTime }) => {
     return <h2 className="text-red-600">Time não encontrado.</h2>;
   }
 
-  const normalizarNome = (nome) => {
-    return nome
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .toLowerCase()
-      .replace(/\s+/g, "-")
-      .replace(/-/g, "");
-  };
-
   const formatarData = (data) => {
-    try {
-      if (data.match(/^\d{2}\/\d{2}\/\d{4}$/)) {
-        const [dia, mes] = data.split("/");
-        const meses = [
-          "jan",
-          "fev",
-          "mar",
-          "abr",
-          "mai",
-          "jun",
-          "jul",
-          "ago",
-          "set",
-          "out",
-          "nov",
-          "dez",
-        ];
-        const mesAbreviado = meses[parseInt(mes) - 1];
-        return `${dia}/${mesAbreviado}`;
-      } else if (data.match(/^\d{2} \w{3} \d{4}$/)) {
-        const [dia, mes] = data.split(" ");
-        return `${dia}/${mes.toLowerCase()}`;
-      }
-      return data;
-    } catch (error) {
-      console.error("Erro ao formatar data:", error);
-      return data;
-    }
-  };
+    let dia, mes, ano;
 
-  const carregarMaisJogos = () => {
-    try {
-      setJogosExibidos((prev) => prev + 3);
-    } catch (error) {
-      console.error("Erro ao carregar mais jogos:", error);
+    // Verificar se a data está no formato "DD/MM/AAAA"
+    if (data.includes("/")) {
+      [dia, mes, ano] = data.split("/");
     }
+    // Verificar se a data está no formato "DD MMM AAAA"
+    else if (data.includes(" ")) {
+      const partes = data.split(" ");
+      dia = partes[0];
+      mes = partes[1];
+      ano = partes[2];
+
+      // Mapear o nome do mês para o número correspondente
+      const meses = {
+        jan: "01",
+        fev: "02",
+        mar: "03",
+        abr: "04",
+        mai: "05",
+        jun: "06",
+        jul: "07",
+        ago: "08",
+        set: "09",
+        out: "10",
+        nov: "11",
+        dez: "12",
+      };
+      mes = meses[mes.toLowerCase()] || "01"; // Usar "01" como fallback
+    }
+    // Se o formato não for reconhecido, retornar a data original
+    else {
+      return data;
+    }
+
+    // Criar um objeto Date (lembrando que o mês no JavaScript é base 0)
+    const dataObj = new Date(ano, mes - 1, dia);
+
+    // Array com os nomes dos meses abreviados
+    const mesesAbreviados = [
+      "jan",
+      "fev",
+      "mar",
+      "abr",
+      "mai",
+      "jun",
+      "jul",
+      "ago",
+      "set",
+      "out",
+      "nov",
+      "dez",
+    ];
+
+    // Array com os nomes dos dias da semana abreviados
+    const diasDaSemanaAbreviados = [
+      "dom",
+      "seg",
+      "ter",
+      "qua",
+      "qui",
+      "sex",
+      "sáb",
+    ];
+
+    // Obter o nome do mês e o dia da semana
+    const mesAbreviado = mesesAbreviados[dataObj.getMonth()];
+    const diaDaSemana = diasDaSemanaAbreviados[dataObj.getDay()];
+
+    // Retornar a data formatada
+    return `${dia}/${mesAbreviado}, ${diaDaSemana}`;
   };
 
   return (
@@ -101,49 +208,58 @@ const TimePage = ({ setSelectedTime }) => {
       <ul className="divide-y divide-gray-300">
         {jogosDoTime.length > 0 ? (
           jogosDoTime.slice(0, jogosExibidos).map((jogo, index) => {
-            const nomeTimeCasa = normalizarNome(jogo.timeCasa);
-            const nomeTimeVisitante = normalizarNome(jogo.timeVisitante);
+            // Normalizar nomes dos times (remover acentos, espaços e hífens)
+            const timeCasaKey = jogo.timeCasa
+              .normalize("NFD")
+              .replace(/[\u0300-\u036f]/g, "")
+              .toLowerCase()
+              .replace(/\s+/g, "")
+              .replace(/-/g, "");
+            const timeVisitanteKey = jogo.timeVisitante
+              .normalize("NFD")
+              .replace(/[\u0300-\u036f]/g, "")
+              .toLowerCase()
+              .replace(/\s+/g, "")
+              .replace(/-/g, "");
+
+            // Verificar se as imagens existem no mapeamento
+            const imagemTimeCasa = imagensTimes[timeCasaKey] || escudo;
+            const imagemTimeVisitante =
+              imagensTimes[timeVisitanteKey] || escudo;
 
             console.log(
-              `Caminho da imagem do time da casa: ../img/times/${nomeTimeCasa}.svg`
+              "Time Casa:",
+              jogo.timeCasa,
+              "Chave:",
+              timeCasaKey,
+              "Imagem:",
+              imagemTimeCasa
             );
             console.log(
-              `Caminho da imagem do time visitante: ../img/times/${nomeTimeVisitante}.svg`
+              "Time Visitante:",
+              jogo.timeVisitante,
+              "Chave:",
+              timeVisitanteKey,
+              "Imagem:",
+              imagemTimeVisitante
             );
 
             return (
-              <li
-                key={`${jogo.timeCasa}-${jogo.timeVisitante}-${index}`}
-                className="py-6"
-              >
+              <li key={index} className="py-6">
                 <div className="grid grid-cols-[1fr_400px_1fr] py-8 px-4 max-sm:flex max-sm:flex-col max-sm:items-center max-sm:gap-6 max-sm:py-4">
                   <div className="flex items-center justify-self-end gap-4">
                     <img
                       className="size-32 max-sm:size-18"
-                      src={`/ondevaipassar-teste/assets/images/times/${nomeTimeCasa}.svg`}
+                      src={imagemTimeCasa}
                       alt={jogo.timeCasa}
-                      title={jogo.timeCasa}
-                      onError={(e) => {
-                        e.target.src = "../img/icones/escudo.svg";
-                      }}
                     />
-                    <img
-                      className="size-6"
-                      src="/ondevaipassar-teste/assets/images/icones/versus.svg"
-                      alt="versus"
-                    />
+                    <img className="size-6" src={versus} alt="versus" />
                     <img
                       className="size-32 max-sm:size-18"
-                      src={`/ondevaipassar-teste/assets/images/times/${nomeTimeVisitante}.svg`}
+                      src={imagemTimeVisitante}
                       alt={jogo.timeVisitante}
-                      title={jogo.timeVisitante}
-                      onError={(e) => {
-                        e.target.src =
-                          "/ondevaipassar-teste/assets/images/icones/escudo.svg";
-                      }}
                     />
                   </div>
-
                   <div className="flex items-center justify-center">
                     <ul className="justify-items-center space-y-2 *:text-xl max-sm:*:text-lg">
                       <li className={`text-${time.cor} uppercase font-bold`}>
@@ -157,34 +273,39 @@ const TimePage = ({ setSelectedTime }) => {
                       </li>
                     </ul>
                   </div>
-
                   {jogo.transmissao.length ? (
                     <div className="flex justify-self-start items-center gap-8 *:*:size-24">
                       {jogo.transmissao.map((canal, i) => {
-                        if (canais[canal]) {
-                          return (
-                            <a key={i} href={canais[canal].url} target="_blank">
-                              <img
-                                className="max-sm:size-18"
-                                src={`/ondevaipassar-teste/assets/images/canais/${canal}.svg`}
-                                alt={canal}
-                                title={canais[canal].nome}
-                              />
-                            </a>
-                          );
-                        } else {
-                          console.warn(
-                            `Canal "${canal}" não encontrado no objeto canais.`
-                          );
-                          return null;
-                        }
+                        const canalKey = canal
+                          .normalize("NFD")
+                          .replace(/[\u0300-\u036f]/g, "")
+                          .toLowerCase()
+                          .replace(/\s+/g, "")
+                          .replace(/-/g, "");
+
+                        const imagemCanal = imagensCanais[canalKey] || escudo;
+
+                        return (
+                          <a
+                            key={i}
+                            href={canais[canal]?.url || "#"}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <img
+                              className="max-sm:size-18"
+                              src={imagemCanal}
+                              alt={canal}
+                            />
+                          </a>
+                        );
                       })}
                     </div>
                   ) : (
                     <p
                       className={`text-${time.cor} uppercase font-bold text-2xl self-center`}
                     >
-                      a definir
+                      A definir
                     </p>
                   )}
                 </div>
@@ -197,11 +318,10 @@ const TimePage = ({ setSelectedTime }) => {
           </p>
         )}
       </ul>
-
       {jogosDoTime.length > jogosExibidos && (
         <button
           className="bg-black w-auto justify-self-center text-white uppercase rounded-full font-bold px-4 py-2 mb-12 cursor-pointer"
-          onClick={carregarMaisJogos}
+          onClick={() => setJogosExibidos((prev) => prev + 3)}
         >
           Ver mais jogos
         </button>
