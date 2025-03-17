@@ -120,7 +120,7 @@ const TimePage = ({ setSelectedTime }) => {
                   <div className="flex items-center justify-self-end gap-4">
                     <img
                       className="size-32 max-sm:size-18"
-                      src={`../img/times/${nomeTimeCasa}.svg`}
+                      src={`/ondevaipassar-teste/assets/images/times/${nomeTimeCasa}.svg`}
                       alt={jogo.timeCasa}
                       title={jogo.timeCasa}
                       onError={(e) => {
@@ -129,16 +129,17 @@ const TimePage = ({ setSelectedTime }) => {
                     />
                     <img
                       className="size-6"
-                      src="../img/icones/versus.svg"
+                      src="/ondevaipassar-teste/assets/images/icones/versus.svg"
                       alt="versus"
                     />
                     <img
                       className="size-32 max-sm:size-18"
-                      src={`../img/times/${nomeTimeVisitante}.svg`}
+                      src={`/ondevaipassar-teste/assets/images/times/${nomeTimeVisitante}.svg`}
                       alt={jogo.timeVisitante}
                       title={jogo.timeVisitante}
                       onError={(e) => {
-                        e.target.src = "../img/icones/escudo.svg";
+                        e.target.src =
+                          "/ondevaipassar-teste/assets/images/icones/escudo.svg";
                       }}
                     />
                   </div>
@@ -165,7 +166,7 @@ const TimePage = ({ setSelectedTime }) => {
                             <a key={i} href={canais[canal].url} target="_blank">
                               <img
                                 className="max-sm:size-18"
-                                src={`../img/canais/${canal}.svg`}
+                                src={`/ondevaipassar-teste/assets/images/canais/${canal}.svg`}
                                 alt={canal}
                                 title={canais[canal].nome}
                               />

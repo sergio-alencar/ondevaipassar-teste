@@ -11,7 +11,7 @@ const DropdownMenuTime = ({ time, setSelectedTime }) => {
       <Link to={`/ondevaipassar-teste/time/${time.nome}`} onClick={handleClick}>
         <img
           className="size-10"
-          src={`/img/times/${time.nome}.svg`}
+          src={`/ondevaipassar-teste/assets/images/times/${time.nome}.svg`}
           alt={`${time.maiusculo}`}
           title={`${time.maiusculo}`}
         />

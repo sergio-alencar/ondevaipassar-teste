@@ -18,7 +18,7 @@ const Footer = ({ selectedTime }) => {
         <a href="/ondevaipassar-teste">
           <img
             className="size-16 max-sm:size-12"
-            src="/img/icones/logo-2.svg"
+            src="/ondevaipassar-teste/assets/images/icones/logo-2.svg"
             alt="Onde Vai Passar"
           />
         </a>
