@@ -1,5 +1,6 @@
 import React from "react";
 import DropdownMenu from "../Components/DropdownMenu";
+import logoHeader from "../assets/images/icones/logo-3.svg";
 
 const Header = ({ selectedTime, setSelectedTime }) => {
   const headerColor = selectedTime ? selectedTime.cor : "purple-900";
@@ -22,7 +23,7 @@ const Header = ({ selectedTime, setSelectedTime }) => {
         <a className="" href="/ondevaipassar-teste">
           <img
             className="w-42 py-4 max-sm:w-32"
-            src="/ondevaipassar-teste/assets/images/icones/logo-3.svg"
+            src={logoHeader}
             alt="Onde Vai Passar"
           />
         </a>
