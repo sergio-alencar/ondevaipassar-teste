@@ -1,9 +1,10 @@
-import React from "react";
+// Home.jsx
+
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import times from "../Components/times";
 import escudo from "/src/assets/images/icones/escudo.svg";
 
-// Importações das imagens dos times
 import atleticomg from "/src/assets/images/times/atleticomg.svg";
 import bahia from "/src/assets/images/times/bahia.svg";
 import botafogo from "/src/assets/images/times/botafogo.svg";
@@ -25,9 +26,8 @@ import sport from "/src/assets/images/times/sport.svg";
 import vasco from "/src/assets/images/times/vasco.svg";
 import vitoria from "/src/assets/images/times/vitoria.svg";
 
-// Mapeamento das imagens dos times (chaves normalizadas e sem hífens)
 const imagensTimes = {
-  atleticomg, // Chave sem hífen
+  atleticomg,
   bahia,
   botafogo,
   bragantino,
@@ -43,25 +43,28 @@ const imagensTimes = {
   mirassol,
   palmeiras,
   santos,
-  saopaulo, // Chave sem hífen
+  saopaulo,
   sport,
   vasco,
   vitoria,
 };
 
 const Home = ({ setSelectedTime }) => {
+  useEffect(() => {
+    setSelectedTime(null);
+  }, [setSelectedTime]);
+
   const handleTimeSelect = (time) => {
     setSelectedTime(time);
   };
 
   return (
     <div className="py-4">
-      <p className="text-4xl font-bold mb-8 pt-8 uppercase justify-self-center max-sm:text-2xl">
+      <p className="text-4xl font-bold mb-8 pt-8 uppercase text-center max-sm:text-2xl">
         Escolha seu time
       </p>
       <ul className="flex flex-wrap justify-items-center max-w-[1100px] mx-auto justify-center">
         {times.map((time) => {
-          // Normalizar nome do time (remover acentos, espaços e hífens)
           const timeKey = time.nome
             .normalize("NFD")
             .replace(/[\u0300-\u036f]/g, "")

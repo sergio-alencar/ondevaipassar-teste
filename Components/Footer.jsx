@@ -1,5 +1,4 @@
 import React from "react";
-import logoFooter from "/src/assets/images/icones/logo-2.svg";
 
 const Footer = ({ selectedTime }) => {
   const footerColor = selectedTime ? selectedTime.cor : "purple-900";
@@ -7,20 +6,11 @@ const Footer = ({ selectedTime }) => {
   console.log("Footer Selected Time:", selectedTime);
 
   return (
-    <footer className={`bg-${footerColor} px-12 max-sm:px-2`}>
-      <div className="flex justify-between items-center py-6 mx-12 max-sm:mx-4 max-sm:py-2">
-        {/* email e copy */}
-        <p className="font-bold uppercase text-xs text-white">
+    <footer className={`bg-${footerColor} px-12 max-sm:px-4`}>
+      <div className="grid py-6 mx-12 max-sm:mx-4 max-sm:py-4">
+        <p className="font-bold uppercase text-xs justify-self-center text-white">
           Onde Vai Passar &copy; 2025
         </p>
-
-        <a href="/ondevaipassar-teste">
-          <img
-            className="size-16 max-sm:size-12"
-            src={logoFooter}
-            alt="Onde Vai Passar"
-          />
-        </a>
       </div>
     </footer>
   );

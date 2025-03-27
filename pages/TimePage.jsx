@@ -1,3 +1,5 @@
+// TimePage.jsx
+
 import React, { useEffect, useState } from "react";
 import times from "../Components/times";
 import { useParams } from "react-router-dom";
@@ -5,7 +7,6 @@ import canais from "../Components/canais";
 import escudo from "/src/assets/images/icones/escudo.svg";
 import versus from "/src/assets/images/icones/versus.svg";
 
-// Importações das imagens dos times
 import atleticomg from "/src/assets/images/times/atleticomg.svg";
 import bahia from "/src/assets/images/times/bahia.svg";
 import botafogo from "/src/assets/images/times/botafogo.svg";
@@ -27,7 +28,6 @@ import sport from "/src/assets/images/times/sport.svg";
 import vasco from "/src/assets/images/times/vasco.svg";
 import vitoria from "/src/assets/images/times/vitoria.svg";
 
-// Importações das imagens dos canais
 import band from "/src/assets/images/canais/band.svg";
 import cazetv from "/src/assets/images/canais/cazetv.svg";
 import disneyplus from "/src/assets/images/canais/disneyplus.svg";
@@ -44,9 +44,8 @@ import sportv from "/src/assets/images/canais/sportv.svg";
 import tntsports from "/src/assets/images/canais/tntsports.svg";
 import youtube from "/src/assets/images/canais/youtube.svg";
 
-// Mapeamento das imagens dos times (chaves normalizadas e sem hífens)
 const imagensTimes = {
-  atleticomg, // Chave sem hífen
+  atleticomg,
   bahia,
   botafogo,
   bragantino,
@@ -62,13 +61,12 @@ const imagensTimes = {
   mirassol,
   palmeiras,
   santos,
-  saopaulo, // Chave sem hífen
+  saopaulo,
   sport,
   vasco,
   vitoria,
 };
 
-// Mapeamento das imagens dos canais (chaves normalizadas)
 const imagensCanais = {
   band,
   cazetv,
@@ -87,36 +85,36 @@ const imagensCanais = {
   youtube,
 };
 
-const TimePage = ({ setSelectedTime }) => {
+const TimePage = () => {
   const { nome } = useParams();
   const time = times.find((t) => t.nome === nome);
   const [jogosExibidos, setJogosExibidos] = useState(3);
   const [jogosDoTime, setJogosDoTime] = useState([]);
 
   useEffect(() => {
-    if (time) {
-      setSelectedTime(time);
-    }
-  }, [time, setSelectedTime]);
-
-  useEffect(() => {
     const carregarJogos = async () => {
       try {
-        const nomeArquivo = nome
+        const nomeFormatado = nome
           .normalize("NFD")
           .replace(/[\u0300-\u036f]/g, "")
           .toLowerCase()
           .replace(/\s+/g, "-");
+        console.log("Nome formatado:", nomeFormatado);
 
-        const { jogosTime } = await import(
-          `../Components/jogos/${nomeArquivo}.jsx`
+        const response = await fetch(
+          `https://sergio-alencar.github.io/ondevaipassar-api/${nomeFormatado}.json`
         );
-        setJogosDoTime(jogosTime || []);
+        const data = await response.json();
+        console.log("Dados da API:", data);
+
+        const jogosDoTime = data[nomeFormatado] || [];
+        setJogosDoTime(jogosDoTime);
       } catch (error) {
         console.error("Erro ao carregar os jogos:", error);
         setJogosDoTime([]);
       }
     };
+
     carregarJogos();
   }, [nome]);
 
@@ -127,18 +125,14 @@ const TimePage = ({ setSelectedTime }) => {
   const formatarData = (data) => {
     let dia, mes, ano;
 
-    // Verificar se a data está no formato "DD/MM/AAAA"
     if (data.includes("/")) {
       [dia, mes, ano] = data.split("/");
-    }
-    // Verificar se a data está no formato "DD MMM AAAA"
-    else if (data.includes(" ")) {
+    } else if (data.includes(" ")) {
       const partes = data.split(" ");
       dia = partes[0];
       mes = partes[1];
       ano = partes[2];
 
-      // Mapear o nome do mês para o número correspondente
       const meses = {
         jan: "01",
         fev: "02",
@@ -153,17 +147,13 @@ const TimePage = ({ setSelectedTime }) => {
         nov: "11",
         dez: "12",
       };
-      mes = meses[mes.toLowerCase()] || "01"; // Usar "01" como fallback
-    }
-    // Se o formato não for reconhecido, retornar a data original
-    else {
+      mes = meses[mes.toLowerCase()] || "01";
+    } else {
       return data;
     }
 
-    // Criar um objeto Date (lembrando que o mês no JavaScript é base 0)
     const dataObj = new Date(ano, mes - 1, dia);
 
-    // Array com os nomes dos meses abreviados
     const mesesAbreviados = [
       "jan",
       "fev",
@@ -179,7 +169,6 @@ const TimePage = ({ setSelectedTime }) => {
       "dez",
     ];
 
-    // Array com os nomes dos dias da semana abreviados
     const diasDaSemanaAbreviados = [
       "dom",
       "seg",
@@ -190,13 +179,13 @@ const TimePage = ({ setSelectedTime }) => {
       "sáb",
     ];
 
-    // Obter o nome do mês e o dia da semana
     const mesAbreviado = mesesAbreviados[dataObj.getMonth()];
     const diaDaSemana = diasDaSemanaAbreviados[dataObj.getDay()];
 
-    // Retornar a data formatada
     return `${dia}/${mesAbreviado}, ${diaDaSemana}`;
   };
+
+  console.log("Jogos do time:", jogosDoTime);
 
   return (
     <div className="grid grid-cols-1 items-center">
@@ -208,7 +197,6 @@ const TimePage = ({ setSelectedTime }) => {
       <ul className="divide-y divide-gray-300">
         {jogosDoTime.length > 0 ? (
           jogosDoTime.slice(0, jogosExibidos).map((jogo, index) => {
-            // Normalizar nomes dos times (remover acentos, espaços e hífens)
             const timeCasaKey = jogo.timeCasa
               .normalize("NFD")
               .replace(/[\u0300-\u036f]/g, "")
@@ -222,7 +210,6 @@ const TimePage = ({ setSelectedTime }) => {
               .replace(/\s+/g, "")
               .replace(/-/g, "");
 
-            // Verificar se as imagens existem no mapeamento
             const imagemTimeCasa = imagensTimes[timeCasaKey] || escudo;
             const imagemTimeVisitante =
               imagensTimes[timeVisitanteKey] || escudo;
@@ -266,7 +253,7 @@ const TimePage = ({ setSelectedTime }) => {
                         {jogo.timeCasa} x {jogo.timeVisitante}
                       </li>
                       <li className={`text-${time.cor} uppercase font-bold`}>
-                        {formatarData(jogo.data)} | {jogo.horario}
+                        {formatarData(jogo.data)}, {jogo.horario}
                       </li>
                       <li className={`text-${time.cor} uppercase font-bold`}>
                         {jogo.campeonato}
@@ -287,6 +274,7 @@ const TimePage = ({ setSelectedTime }) => {
 
                         return (
                           <a
+                            className="relative z-20"
                             key={i}
                             href={canais[canal]?.url || "#"}
                             target="_blank"
@@ -297,6 +285,11 @@ const TimePage = ({ setSelectedTime }) => {
                               src={imagemCanal}
                               alt={canal}
                             />
+                            {canais[canal].nome == "Globo" && (
+                              <span className="!w-8 !h-8 bg-yellow-400 rounded-full absolute inset-0 justify-self-end self-start text-center font-bold flex items-center justify-center text-sm z-10">
+                                MG
+                              </span>
+                            )}
                           </a>
                         );
                       })}

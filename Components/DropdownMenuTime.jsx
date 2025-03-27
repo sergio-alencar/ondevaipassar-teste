@@ -3,7 +3,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-// Importações das imagens dos times
 import atleticomg from "/src/assets/images/times/atleticomg.svg";
 import bahia from "/src/assets/images/times/bahia.svg";
 import botafogo from "/src/assets/images/times/botafogo.svg";
@@ -25,9 +24,8 @@ import sport from "/src/assets/images/times/sport.svg";
 import vasco from "/src/assets/images/times/vasco.svg";
 import vitoria from "/src/assets/images/times/vitoria.svg";
 
-// Mapeamento das imagens dos times (chaves normalizadas e sem hífens)
 const imagensTimes = {
-  atleticomg, // Chave sem hífen
+  atleticomg,
   bahia,
   botafogo,
   bragantino,
@@ -43,7 +41,7 @@ const imagensTimes = {
   mirassol,
   palmeiras,
   santos,
-  saopaulo, // Chave sem hífen
+  saopaulo,
   sport,
   vasco,
   vitoria,
@@ -54,7 +52,6 @@ const DropdownMenuTime = ({ time, setSelectedTime }) => {
     setSelectedTime(time);
   };
 
-  // Normalizar o nome do time (remover acentos, espaços e hífens)
   const timeKey = time.nome
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
@@ -62,7 +59,6 @@ const DropdownMenuTime = ({ time, setSelectedTime }) => {
     .replace(/\s+/g, "")
     .replace(/-/g, "");
 
-  // Verificar se a imagem existe no mapeamento
   const imagemTime = imagensTimes[timeKey];
 
   return (
