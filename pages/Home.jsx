@@ -14,11 +14,11 @@ const Home = ({ setSelectedTime }) => {
   };
 
   return (
-    <div className="py-4">
+    <main className="py-4 max-lg:grow">
       <p className="text-4xl font-bold mb-8 pt-8 uppercase text-center max-sm:text-2xl">
         Escolha seu time
       </p>
-      <ul className="flex flex-wrap justify-items-center max-w-[1100px] mx-auto justify-center">
+      <ul className="flex flex-wrap gap-10 justify-items-center max-w-[1100px] mx-auto justify-center max-lg:max-w-3xl">
         {times.map((time) => {
           const baseUrl =
             "https://raw.githubusercontent.com/sergio-alencar/ondevaipassar-teste/main/public/images/times/";
@@ -27,7 +27,7 @@ const Home = ({ setSelectedTime }) => {
           return (
             <li
               key={time.nome}
-              className="p-4"
+              className=""
               onClick={() => handleTimeSelect(time)}
             >
               <Link to={`/ondevaipassar-teste/time/${time.nome}`}>
@@ -35,14 +35,14 @@ const Home = ({ setSelectedTime }) => {
                   src={urlFinal}
                   alt={time.nome}
                   title={time.maiusculo}
-                  className="h-38 w-40 px-4 py-2 max-sm:h-18 max-sm:w-18 max-sm:px-2 max-sm:py-0 hover:scale-105 transition"
+                  className="h-38 w-40 px-4 py-2 hover:scale-105 transition max-sm:h-18 max-sm:w-18 max-lg:w-24 max-lg:px-2 max-lg:py-0"
                 />
               </Link>
             </li>
           );
         })}
       </ul>
-    </div>
+    </main>
   );
 };
 

@@ -30,6 +30,6 @@ export default {
         ["slide-out"]: "slideOut .4s ease-in-out forwards",
       },
     },
-    plugins: [],
+    plugins: ["tailwind-scrollbar"],
   },
 };

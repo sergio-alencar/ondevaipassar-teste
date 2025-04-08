@@ -32,9 +32,22 @@ const App = () => {
           />
           <Route
             path="/ondevaipassar-teste/contato"
-            element={<Contato />}
+            element={
+              <Contato
+                selectedTime={selectedTime}
+                setSelectedTime={setSelectedTime}
+              />
+            }
           ></Route>
-          <Route path="/ondevaipassar-teste/sobre" element={<Sobre />}></Route>
+          <Route
+            path="/ondevaipassar-teste/sobre"
+            element={
+              <Sobre
+                selectedTime={selectedTime}
+                setSelectedTime={setSelectedTime}
+              />
+            }
+          ></Route>
         </Routes>
         <Footer selectedTime={selectedTime} />
       </div>

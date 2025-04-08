@@ -1,10 +1,19 @@
 import React from "react";
+import { useEffect } from "react";
 
-const Sobre = () => {
+const Sobre = ({ setSelectedTime }) => {
+  useEffect(() => {
+    setSelectedTime(null);
+  }, [setSelectedTime]);
+
   return (
-    <div className="flex flex-col container max-w-6xl justify-self-center mx-auto max-sm:px-4">
-      <h1 className="text-4xl font-bold uppercase mb-6">Sobre</h1>
-      <h2 className="font-bold text-3xl mb-4">Quem sou eu?</h2>
+    <main className="flex flex-col grow max-w-6xl px-4 py-12 self-center max-sm:px-4 max-xl:max-w-4xl">
+      <h1 className="text-4xl font-bold uppercase mb-6 max-sm:text-3xl">
+        Sobre
+      </h1>
+      <h2 className="font-bold text-3xl mb-4 max-sm:text-2xl max-sm:mb-2">
+        Quem sou eu?
+      </h2>
       <p className="text-xl mb-10">
         Meu nome é Sérgio. Sou estudante de Sistemas de Informação, engenheiro
         de software e torcedor do Cruzeiro. Se quiser conhecer mais sobre mim,
@@ -37,7 +46,9 @@ const Sobre = () => {
         </a>
         .
       </p>
-      <h2 className="font-bold text-3xl mb-4">O que é o Onde Vai Passar?</h2>
+      <h2 className="font-bold text-3xl mb-4 max-sm:text-2xl max-sm:mb-2">
+        O que é o Onde Vai Passar?
+      </h2>
       <p className="text-xl">
         É uma tentativa de resolver um problema pelo qual muitos torcedores já
         passaram: tentar descobrir onde conseguir assistir ao jogo do seu time.
@@ -45,7 +56,7 @@ const Sobre = () => {
         e pouco estruturada. O <i>Onde Vai Passar</i> busca esses dados por meio
         de webscraping e os disponibiliza em um só lugar.
       </p>
-    </div>
+    </main>
   );
 };
 

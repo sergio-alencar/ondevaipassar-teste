@@ -140,7 +140,7 @@ const Header = ({ selectedTime, setSelectedTime }) => {
       <header
         className={`bg-${headerColor} sticky top-0 px-12 max-sm:px-2 z-30`}
       >
-        <div className="flex justify-between  items-center mx-12 max-sm:mx-4">
+        <div className="flex justify-between items-center mx-12 max-sm:mx-4">
           <button
             id="menu-botao"
             className="flex gap-4 items-center cursor-pointer"
@@ -162,8 +162,9 @@ const Header = ({ selectedTime, setSelectedTime }) => {
               alt="Onde Vai Passar"
             />
           </a>
+
           <div className="flex gap-4 py-6 cursor-pointer hover:*:block">
-            <p className="text-white text-xl uppercase font-bold select-none max-sm:hidden">
+            <p className="text-white text-xl uppercase font-bold select-none max-sm:!hidden">
               times
             </p>
             <img
@@ -193,10 +194,20 @@ const Header = ({ selectedTime, setSelectedTime }) => {
       >
         <ul className="px-8 py-12 *:uppercase *:font-bold *:text-2xl space-y-4">
           <li>
-            <Link to="/ondevaipassar-teste/sobre">Sobre</Link>
+            <Link
+              to="/ondevaipassar-teste/sobre"
+              onClick={() => setIsMenuVisible(false)}
+            >
+              Sobre
+            </Link>
           </li>
           <li>
-            <Link to="/ondevaipassar-teste/contato">Contato</Link>
+            <Link
+              to="/ondevaipassar-teste/contato"
+              onClick={() => setIsMenuVisible(false)}
+            >
+              Contato
+            </Link>
           </li>
         </ul>
       </div>

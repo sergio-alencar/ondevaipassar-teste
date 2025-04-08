@@ -413,7 +413,7 @@ const TimePage = () => {
   return (
     <div className="grid grid-cols-1 items-center">
       <p
-        className={`text-4xl max-sm:text-2xl font-bold uppercase text-${time.cor} justify-self-center pt-8`}
+        className={`text-4xl max-sm:text-2xl font-bold uppercase text-${time.cor} justify-self-center pt-8 max-sm:py-4`}
       >
         {time.maiusculo}
       </p>
@@ -421,12 +421,12 @@ const TimePage = () => {
       <ul className="divide-y divide-gray-300">
         {proximosJogos.length > 0 ? (
           proximosJogos.slice(0, jogosExibidos).map((jogo, index) => (
-            <li key={`${jogo.id}-${index}`} className="py-6">
-              <div className="grid grid-cols-[1fr_400px_1fr] gap-2 py-8 px-4 max-sm:flex max-sm:flex-col max-sm:items-center max-sm:gap-6 max-sm:py-4">
-                <div className="flex items-center justify-self-end gap-4">
+            <li key={`${jogo.id}-${index}`} className="py-6 max-sm:py-0">
+              <div className="grid grid-cols-[1fr_400px_1fr] gap-2 py-8 px-4 max-lg:grid-cols-3 max-lg:py-2 max-lg:px-2 max-sm:flex max-sm:flex-col max-sm:items-center max-sm:gap-2 max-sm:py-4">
+                <div className="flex items-center justify-self-end gap-4 max-lg:gap-2 max-lg:justify-self-center">
                   <img
                     crossOrigin="anonymous"
-                    className="size-32 max-sm:size-18"
+                    className="size-32 max-lg:size-20 max-sm:size-18"
                     src={obterImagemTime(jogo.timeCasa)}
                     alt={prepararNomeParaExibicao(jogo.timeCasa)}
                     title={prepararNomeParaExibicao(jogo.timeCasa)}
@@ -437,10 +437,14 @@ const TimePage = () => {
                     }}
                     loading="lazy"
                   />
-                  <img className="size-6" src={versus} alt="versus" />
+                  <img
+                    className="size-6 max-lg:size-4"
+                    src={versus}
+                    alt="versus"
+                  />
                   <img
                     crossOrigin="anonymous"
-                    className="size-32 max-sm:size-18"
+                    className="size-32 max-lg:size-20 max-sm:size-18"
                     src={obterImagemTime(jogo.timeVisitante)}
                     alt={prepararNomeParaExibicao(jogo.timeVisitante)}
                     title={prepararNomeParaExibicao(jogo.timeVisitante)}
@@ -452,8 +456,9 @@ const TimePage = () => {
                     loading="lazy"
                   />
                 </div>
+
                 <div className="flex items-center justify-center">
-                  <ul className="justify-items-center space-y-2 *:text-xl max-sm:*:text-lg">
+                  <ul className="justify-items-center space-y-2 *:text-xl *:text-center max-lg:*:text-base max-sm:*:text-lg max-sm:space-y-0.5">
                     <li className={`text-${time.cor} uppercase font-bold`}>
                       {prepararNomeParaExibicao(jogo.timeCasa)}{" "}
                       <span className="lowercase">x</span>{" "}
@@ -467,48 +472,50 @@ const TimePage = () => {
                     </li>
                   </ul>
                 </div>
-                <div className="flex justify-self-start items-center gap-6 flex-wrap max-sm:justify-self-center max-sm:justify-items-center max-sm:flex-nowrap max-sm:overflow-x-auto">
-                  {jogo.canais && jogo.canais.length > 0 ? (
-                    separarCanais(jogo.canais).map((canal, idx) => {
-                      console.log("Canal separado:", canal);
 
-                      const imagemCanal = obterImagemCanal(canal);
-                      const nomeNormalizado = normalizarNomeTime(canal);
-                      const url = canais[nomeNormalizado]?.url;
-                      const alt = canais[nomeNormalizado]?.nome;
-                      const title = canais[nomeNormalizado]?.nome;
-                      console.log(nomeNormalizado);
-
-                      return (
-                        imagemCanal && (
-                          <a
-                            key={`${canal}-${idx}`}
-                            href={url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <img
-                              src={imagemCanal}
-                              alt={alt}
-                              title={title}
-                              className="w-32 mr-2 max-sm:w-28 hover:scale-105 transition"
-                              loading="lazy"
-                              onError={(e) => {
-                                e.target.onerror = null;
-                                e.target.style.display = "none";
-                              }}
-                            />
-                          </a>
-                        )
-                      );
-                    })
-                  ) : (
-                    <p
-                      className={`text-${time.cor} uppercase font-bold text-lg`}
-                    >
-                      Transmissão a confirmar
-                    </p>
-                  )}
+                <div className="overflow-x-auto whitespace-nowrap">
+                  <div
+                    className="flex justify-self-start items-center gap-6 max-lg:gap-2 max-lg:justify-self-center max-lg:justify-items-center overflow-y-hidden"
+                    style={{ scrollbarWidth: "thin" }}
+                  >
+                    {jogo.canais && jogo.canais.length > 0 ? (
+                      separarCanais(jogo.canais).map((canal, idx) => {
+                        const imagemCanal = obterImagemCanal(canal);
+                        const nomeNormalizado = normalizarNomeTime(canal);
+                        const url = canais[nomeNormalizado]?.url;
+                        const alt = canais[nomeNormalizado]?.nome;
+                        const title = canais[nomeNormalizado]?.nome;
+                        return (
+                          imagemCanal && (
+                            <a
+                              key={`${canal}-${idx}`}
+                              href={url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <img
+                                src={imagemCanal}
+                                alt={alt}
+                                title={title}
+                                className="w-32 mr-2 shrink-0 hover:scale-105 transition max-lg:mr-1 max-sm:w-28"
+                                loading="lazy"
+                                onError={(e) => {
+                                  e.target.onerror = null;
+                                  e.target.style.display = "none";
+                                }}
+                              />
+                            </a>
+                          )
+                        );
+                      })
+                    ) : (
+                      <p
+                        className={`text-${time.cor} uppercase font-bold text-lg max-lg:text-base`}
+                      >
+                        Transmissão a confirmar
+                      </p>
+                    )}
+                  </div>
                 </div>
               </div>
             </li>

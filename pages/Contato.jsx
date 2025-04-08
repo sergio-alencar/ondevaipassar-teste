@@ -1,14 +1,20 @@
 import React from "react";
+import { useEffect } from "react";
 
-const handleClick = () => {
+const handleClick = (event) => {
   event.preventDefault();
 };
 
-const Contato = () => {
+const Contato = ({ setSelectedTime }) => {
+  useEffect(() => {
+    setSelectedTime(null);
+  }, [setSelectedTime]);
   return (
-    <div className="flex flex-col container max-w-5xl justify-self-center items-center mx-auto max-sm:px-4">
+    <div className="flex flex-col container max-w-5xl justify-self-center items-center mx-auto max-sm:px-4 grow py-12">
       <div>
-        <h1 className="font-bold text-4xl mb-4 uppercase">Contato</h1>
+        <h1 className="font-bold text-4xl mb-4 uppercase max-sm:text-3xl">
+          Contato
+        </h1>
         <p className="text-xl mb-10">
           Tem alguma sugestão de melhoria para o site? Gostaria muito de saber a
           sua opinião.
