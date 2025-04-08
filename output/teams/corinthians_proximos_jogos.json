@@ -1,0 +1,107 @@
+{
+  "time": "Corinthians",
+  "timeId": "4128",
+  "atualizadoEm": "2025-04-07T15:55:46.715Z",
+  "proximosJogos": [
+    {
+      "id": "match_1744158600_0",
+      "timeCasa": "America de Cali",
+      "timeVisitante": "Corinthians",
+      "startTimestamp": 1744158600,
+      "data": "2025-04-09T00:30:00.000Z",
+      "horario": "00:30",
+      "campeonato": "Copa Sudamericana",
+      "canais": "Paramount+ e SBT"
+    },
+    {
+      "id": "match_1744493400_1",
+      "timeCasa": "Palmeiras",
+      "timeVisitante": "Corinthians",
+      "startTimestamp": 1744493400,
+      "data": "2025-04-12T21:30:00.000Z",
+      "horario": "21:30",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere"
+    },
+    {
+      "id": "match_1744842600_2",
+      "timeCasa": "Corinthians",
+      "timeVisitante": "Fluminense",
+      "startTimestamp": 1744842600,
+      "data": "2025-04-16T22:30:00.000Z",
+      "horario": "22:30",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere e Record"
+    },
+    {
+      "id": "match_1745089200_3",
+      "timeCasa": "Corinthians",
+      "timeVisitante": "Sport Recife",
+      "startTimestamp": 1745089200,
+      "data": "2025-04-19T19:00:00.000Z",
+      "horario": "19:00",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere"
+    },
+    {
+      "id": "match_1745532000_4",
+      "timeCasa": "Corinthians",
+      "timeVisitante": "Racing Club de Montevideo",
+      "startTimestamp": 1745532000,
+      "data": "2025-04-24T22:00:00.000Z",
+      "horario": "22:00",
+      "campeonato": "Copa Sudamericana",
+      "canais": "Disney+ e ESPN"
+    },
+    {
+      "id": "match_1745780400_5",
+      "timeCasa": "Flamengo",
+      "timeVisitante": "Corinthians",
+      "startTimestamp": 1745780400,
+      "data": "2025-04-27T19:00:00.000Z",
+      "horario": "19:00",
+      "campeonato": "Brazil Serie A",
+      "canais": "Globo e Premiere"
+    },
+    {
+      "id": "match_1746307800_6",
+      "timeCasa": "Corinthians",
+      "timeVisitante": "Internacional",
+      "startTimestamp": 1746307800,
+      "data": "2025-05-03T21:30:00.000Z",
+      "horario": "21:30",
+      "campeonato": "Brazil Serie A",
+      "canais": "Prime Video"
+    },
+    {
+      "id": "match_1746577800_7",
+      "timeCasa": "Corinthians",
+      "timeVisitante": "America de Cali",
+      "startTimestamp": 1746577800,
+      "data": "2025-05-07T00:30:00.000Z",
+      "horario": "00:30",
+      "campeonato": "Copa Sudamericana",
+      "canais": "Paramount+ e SBT"
+    },
+    {
+      "id": "match_1746912600_8",
+      "timeCasa": "Mirassol",
+      "timeVisitante": "Corinthians",
+      "startTimestamp": 1746912600,
+      "data": "2025-05-10T21:30:00.000Z",
+      "horario": "21:30",
+      "campeonato": "Brazil Serie A",
+      "canais": "Prime Video"
+    },
+    {
+      "id": "match_1747346400_9",
+      "timeCasa": "Racing Club de Montevideo",
+      "timeVisitante": "Corinthians",
+      "startTimestamp": 1747346400,
+      "data": "2025-05-15T22:00:00.000Z",
+      "horario": "22:00",
+      "campeonato": "Copa Sudamericana",
+      "canais": "Disney+ e ESPN"
+    }
+  ]
+}

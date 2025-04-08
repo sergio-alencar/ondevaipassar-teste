@@ -1,0 +1,107 @@
+{
+  "time": "Atletico-Mineiro",
+  "timeId": "1313",
+  "atualizadoEm": "2025-04-07T15:55:18.636Z",
+  "proximosJogos": [
+    {
+      "id": "match_1744331400_0",
+      "timeCasa": "Atletico Mineiro",
+      "timeVisitante": "Deportes Iquique",
+      "startTimestamp": 1744331400,
+      "data": "2025-04-11T00:30:00.000Z",
+      "horario": "00:30",
+      "campeonato": "Copa Sudamericana",
+      "canais": "Paramount+"
+    },
+    {
+      "id": "match_1744587000_1",
+      "timeCasa": "Atletico Mineiro",
+      "timeVisitante": "Vitoria",
+      "startTimestamp": 1744587000,
+      "data": "2025-04-13T23:30:00.000Z",
+      "horario": "23:30",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere e SporTV"
+    },
+    {
+      "id": "match_1744849800_2",
+      "timeCasa": "Santos",
+      "timeVisitante": "Atletico Mineiro",
+      "startTimestamp": 1744849800,
+      "data": "2025-04-17T00:30:00.000Z",
+      "horario": "00:30",
+      "campeonato": "Brazil Serie A",
+      "canais": "Globo e Premiere"
+    },
+    {
+      "id": "match_1745175600_3",
+      "timeCasa": "Atletico Mineiro",
+      "timeVisitante": "Botafogo",
+      "startTimestamp": 1745175600,
+      "data": "2025-04-20T19:00:00.000Z",
+      "horario": "19:00",
+      "campeonato": "Brazil Serie A",
+      "canais": "Globo e Premiere"
+    },
+    {
+      "id": "match_1745454600_4",
+      "timeCasa": "Caracas",
+      "timeVisitante": "Atletico Mineiro",
+      "startTimestamp": 1745454600,
+      "data": "2025-04-24T00:30:00.000Z",
+      "horario": "00:30",
+      "campeonato": "Copa Sudamericana",
+      "canais": "Paramount+"
+    },
+    {
+      "id": "match_1745703000_5",
+      "timeCasa": "Mirassol",
+      "timeVisitante": "Atletico Mineiro",
+      "startTimestamp": 1745703000,
+      "data": "2025-04-26T21:30:00.000Z",
+      "horario": "21:30",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere"
+    },
+    {
+      "id": "match_1746486000_6",
+      "timeCasa": "EC Juventude",
+      "timeVisitante": "Atletico Mineiro",
+      "startTimestamp": 1746486000,
+      "data": "2025-05-05T23:00:00.000Z",
+      "horario": "23:00",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere e SporTV"
+    },
+    {
+      "id": "match_1746741600_7",
+      "timeCasa": "Deportes Iquique",
+      "timeVisitante": "Atletico Mineiro",
+      "startTimestamp": 1746741600,
+      "data": "2025-05-08T22:00:00.000Z",
+      "horario": "22:00",
+      "campeonato": "Copa Sudamericana",
+      "canais": "Paramount+"
+    },
+    {
+      "id": "match_1746995400_8",
+      "timeCasa": "Atletico Mineiro",
+      "timeVisitante": "Fluminense",
+      "startTimestamp": 1746995400,
+      "data": "2025-05-11T20:30:00.000Z",
+      "horario": "20:30",
+      "campeonato": "Brazil Serie A",
+      "canais": "Globo e Premiere"
+    },
+    {
+      "id": "match_1747355400_9",
+      "timeCasa": "Atletico Mineiro",
+      "timeVisitante": "Caracas",
+      "startTimestamp": 1747355400,
+      "data": "2025-05-16T00:30:00.000Z",
+      "horario": "00:30",
+      "campeonato": "Copa Sudamericana",
+      "canais": "Paramount+"
+    }
+  ]
+}

@@ -3,51 +3,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import times from "../Components/times";
-import escudo from "/src/assets/images/icones/escudo.svg";
-
-import atleticomg from "/src/assets/images/times/atleticomg.svg";
-import bahia from "/src/assets/images/times/bahia.svg";
-import botafogo from "/src/assets/images/times/botafogo.svg";
-import bragantino from "/src/assets/images/times/bragantino.svg";
-import ceara from "/src/assets/images/times/ceara.svg";
-import corinthians from "/src/assets/images/times/corinthians.svg";
-import cruzeiro from "/src/assets/images/times/cruzeiro.svg";
-import flamengo from "/src/assets/images/times/flamengo.svg";
-import fluminense from "/src/assets/images/times/fluminense.svg";
-import fortaleza from "/src/assets/images/times/fortaleza.svg";
-import gremio from "/src/assets/images/times/gremio.svg";
-import internacional from "/src/assets/images/times/internacional.svg";
-import juventude from "/src/assets/images/times/juventude.svg";
-import mirassol from "/src/assets/images/times/mirassol.svg";
-import palmeiras from "/src/assets/images/times/palmeiras.svg";
-import santos from "/src/assets/images/times/santos.svg";
-import saopaulo from "/src/assets/images/times/saopaulo.svg";
-import sport from "/src/assets/images/times/sport.svg";
-import vasco from "/src/assets/images/times/vasco.svg";
-import vitoria from "/src/assets/images/times/vitoria.svg";
-
-const imagensTimes = {
-  atleticomg,
-  bahia,
-  botafogo,
-  bragantino,
-  ceara,
-  corinthians,
-  cruzeiro,
-  flamengo,
-  fluminense,
-  fortaleza,
-  gremio,
-  internacional,
-  juventude,
-  mirassol,
-  palmeiras,
-  santos,
-  saopaulo,
-  sport,
-  vasco,
-  vitoria,
-};
 
 const Home = ({ setSelectedTime }) => {
   useEffect(() => {
@@ -65,24 +20,9 @@ const Home = ({ setSelectedTime }) => {
       </p>
       <ul className="flex flex-wrap justify-items-center max-w-[1100px] mx-auto justify-center">
         {times.map((time) => {
-          const timeKey = time.nome
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "")
-            .toLowerCase()
-            .replace(/\s+/g, "")
-            .replace(/-/g, "");
-
-          // Verificar se a imagem existe no mapeamento
-          const imagemTime = imagensTimes[timeKey] || escudo;
-
-          console.log(
-            "Time:",
-            time.nome,
-            "Chave:",
-            timeKey,
-            "Imagem:",
-            imagemTime
-          );
+          const baseUrl =
+            "https://raw.githubusercontent.com/sergio-alencar/ondevaipassar-teste/main/public/images/times/";
+          const urlFinal = `${baseUrl}${time.nome}.svg`;
 
           return (
             <li
@@ -92,10 +32,10 @@ const Home = ({ setSelectedTime }) => {
             >
               <Link to={`/ondevaipassar-teste/time/${time.nome}`} className="">
                 <img
-                  src={imagemTime}
+                  src={urlFinal}
                   alt={time.nome}
                   title={time.maiusculo}
-                  className="h-42 w-42 px-4 py-2 max-sm:h-18 max-sm:w-18 max-sm:px-2 max-sm:py-0"
+                  className="h-38 w-40 px-4 py-2 max-sm:h-18 max-sm:w-18 max-sm:px-2 max-sm:py-0 hover:scale-105 transition"
                 />
               </Link>
             </li>

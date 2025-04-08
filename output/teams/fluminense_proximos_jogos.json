@@ -1,0 +1,107 @@
+{
+  "time": "Fluminense",
+  "timeId": "1286",
+  "atualizadoEm": "2025-04-07T15:56:03.797Z",
+  "proximosJogos": [
+    {
+      "id": "match_1744331400_0",
+      "timeCasa": "Fluminense",
+      "timeVisitante": "Gualberto Villarroel",
+      "startTimestamp": 1744331400,
+      "data": "2025-04-11T00:30:00.000Z",
+      "horario": "00:30",
+      "campeonato": "Copa Sudamericana",
+      "canais": "Paramount+"
+    },
+    {
+      "id": "match_1744583400_1",
+      "timeCasa": "Fluminense",
+      "timeVisitante": "Santos",
+      "startTimestamp": 1744583400,
+      "data": "2025-04-13T22:30:00.000Z",
+      "horario": "22:30",
+      "campeonato": "Brazil Serie A",
+      "canais": "Prime Video"
+    },
+    {
+      "id": "match_1744842600_2",
+      "timeCasa": "Corinthians",
+      "timeVisitante": "Fluminense",
+      "startTimestamp": 1744842600,
+      "data": "2025-04-16T22:30:00.000Z",
+      "horario": "22:30",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere e Record"
+    },
+    {
+      "id": "match_1745184600_3",
+      "timeCasa": "Fluminense",
+      "timeVisitante": "Vitoria",
+      "startTimestamp": 1745184600,
+      "data": "2025-04-20T21:30:00.000Z",
+      "horario": "21:30",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere"
+    },
+    {
+      "id": "match_1745368200_4",
+      "timeCasa": "Union Espanola",
+      "timeVisitante": "Fluminense",
+      "startTimestamp": 1745368200,
+      "data": "2025-04-23T00:30:00.000Z",
+      "horario": "00:30",
+      "campeonato": "Copa Sudamericana",
+      "canais": "Disney+ e ESPN"
+    },
+    {
+      "id": "match_1745712000_5",
+      "timeCasa": "Botafogo",
+      "timeVisitante": "Fluminense",
+      "startTimestamp": 1745712000,
+      "data": "2025-04-27T00:00:00.000Z",
+      "horario": "00:00",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere e SporTV"
+    },
+    {
+      "id": "match_1746307800_6",
+      "timeCasa": "Fluminense",
+      "timeVisitante": "Sport Recife",
+      "startTimestamp": 1746307800,
+      "data": "2025-05-03T21:30:00.000Z",
+      "horario": "21:30",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere"
+    },
+    {
+      "id": "match_1746750600_7",
+      "timeCasa": "San Jose de Oruro",
+      "timeVisitante": "Fluminense",
+      "startTimestamp": 1746750600,
+      "data": "2025-05-09T00:30:00.000Z",
+      "horario": "00:30",
+      "campeonato": "Copa Sudamericana",
+      "canais": "Paramount+"
+    },
+    {
+      "id": "match_1746995400_8",
+      "timeCasa": "Atletico Mineiro",
+      "timeVisitante": "Fluminense",
+      "startTimestamp": 1746995400,
+      "data": "2025-05-11T20:30:00.000Z",
+      "horario": "20:30",
+      "campeonato": "Brazil Serie A",
+      "canais": "Globo e Premiere"
+    },
+    {
+      "id": "match_1747260000_9",
+      "timeCasa": "Fluminense",
+      "timeVisitante": "Union Espanola",
+      "startTimestamp": 1747260000,
+      "data": "2025-05-14T22:00:00.000Z",
+      "horario": "22:00",
+      "campeonato": "Copa Sudamericana",
+      "canais": "Disney+ e ESPN"
+    }
+  ]
+}

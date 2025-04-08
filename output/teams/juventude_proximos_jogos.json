@@ -1,0 +1,107 @@
+{
+  "time": "Juventude",
+  "timeId": "45589",
+  "atualizadoEm": "2025-04-07T15:56:25.960Z",
+  "proximosJogos": [
+    {
+      "id": "match_1744484400_0",
+      "timeCasa": "Juventude",
+      "timeVisitante": "Ceara",
+      "startTimestamp": 1744484400,
+      "data": "2025-04-12T19:00:00.000Z",
+      "horario": "19:00",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere"
+    },
+    {
+      "id": "match_1744849800_1",
+      "timeCasa": "Flamengo",
+      "timeVisitante": "Juventude",
+      "startTimestamp": 1744849800,
+      "data": "2025-04-17T00:30:00.000Z",
+      "horario": "00:30",
+      "campeonato": "Brazil Serie A",
+      "canais": "Globo e Premiere"
+    },
+    {
+      "id": "match_1745157600_2",
+      "timeCasa": "EC Juventude",
+      "timeVisitante": "Mirassol",
+      "startTimestamp": 1745157600,
+      "data": "2025-04-20T14:00:00.000Z",
+      "horario": "14:00",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere"
+    },
+    {
+      "id": "match_1745694000_3",
+      "timeCasa": "Internacional",
+      "timeVisitante": "EC Juventude",
+      "startTimestamp": 1745694000,
+      "data": "2025-04-26T19:00:00.000Z",
+      "horario": "19:00",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere"
+    },
+    {
+      "id": "match_1746486000_4",
+      "timeCasa": "EC Juventude",
+      "timeVisitante": "Atletico Mineiro",
+      "startTimestamp": 1746486000,
+      "data": "2025-05-05T23:00:00.000Z",
+      "horario": "23:00",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere e SporTV"
+    },
+    {
+      "id": "match_1746903600_5",
+      "timeCasa": "Fortaleza",
+      "timeVisitante": "EC Juventude",
+      "startTimestamp": 1746903600,
+      "data": "2025-05-10T19:00:00.000Z",
+      "horario": "19:00",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere"
+    },
+    {
+      "id": "match_1747594800_6",
+      "timeCasa": "EC Juventude",
+      "timeVisitante": "Fluminense",
+      "startTimestamp": 1747594800,
+      "data": "2025-05-18T19:00:00.000Z",
+      "horario": "19:00",
+      "campeonato": "Brazil Serie A",
+      "canais": "Globo e Premiere"
+    },
+    {
+      "id": "match_1748300400_7",
+      "timeCasa": "Bragantino",
+      "timeVisitante": "EC Juventude",
+      "startTimestamp": 1748300400,
+      "data": "2025-05-26T23:00:00.000Z",
+      "horario": "23:00",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere"
+    },
+    {
+      "id": "match_1748804400_8",
+      "timeCasa": "EC Juventude",
+      "timeVisitante": "Gremio",
+      "startTimestamp": 1748804400,
+      "data": "2025-06-01T19:00:00.000Z",
+      "horario": "19:00",
+      "campeonato": "Brazil Serie A",
+      "canais": "Globo e Premiere"
+    },
+    {
+      "id": "match_1749664800_9",
+      "timeCasa": "Palmeiras",
+      "timeVisitante": "EC Juventude",
+      "startTimestamp": 1749664800,
+      "data": "2025-06-11T18:00:00.000Z",
+      "horario": "18:00",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere e SporTV"
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "time": "Vitoria",
+  "timeId": "1419",
+  "atualizadoEm": "2025-04-07T15:57:07.966Z",
+  "proximosJogos": [
+    {
+      "id": "match_1744322400_0",
+      "timeCasa": "Defensa y Justicia",
+      "timeVisitante": "Vitoria",
+      "startTimestamp": 1744322400,
+      "data": "2025-04-10T22:00:00.000Z",
+      "horario": "22:00",
+      "campeonato": "Copa Sudamericana",
+      "canais": "Disney+ e ESPN"
+    },
+    {
+      "id": "match_1744587000_1",
+      "timeCasa": "Atletico Mineiro",
+      "timeVisitante": "Vitoria",
+      "startTimestamp": 1744587000,
+      "data": "2025-04-13T23:30:00.000Z",
+      "horario": "23:30",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere e SporTV"
+    },
+    {
+      "id": "match_1744849800_2",
+      "timeCasa": "Vitoria",
+      "timeVisitante": "Fortaleza",
+      "startTimestamp": 1744849800,
+      "data": "2025-04-17T00:30:00.000Z",
+      "horario": "00:30",
+      "campeonato": "Brazil Serie A",
+      "canais": "Globo e Premiere"
+    },
+    {
+      "id": "match_1745184600_3",
+      "timeCasa": "Fluminense",
+      "timeVisitante": "Vitoria",
+      "startTimestamp": 1745184600,
+      "data": "2025-04-20T21:30:00.000Z",
+      "horario": "21:30",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere"
+    },
+    {
+      "id": "match_1745454600_4",
+      "timeCasa": "Vitoria",
+      "timeVisitante": "Cerro Largo",
+      "startTimestamp": 1745454600,
+      "data": "2025-04-24T00:30:00.000Z",
+      "horario": "00:30",
+      "campeonato": "Copa Sudamericana",
+      "canais": "Paramount+"
+    },
+    {
+      "id": "match_1745789400_5",
+      "timeCasa": "Vitoria",
+      "timeVisitante": "Gremio",
+      "startTimestamp": 1745789400,
+      "data": "2025-04-27T21:30:00.000Z",
+      "horario": "21:30",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere"
+    },
+    {
+      "id": "match_1746307800_6",
+      "timeCasa": "Ceara",
+      "timeVisitante": "Vitoria",
+      "startTimestamp": 1746307800,
+      "data": "2025-05-03T21:30:00.000Z",
+      "horario": "21:30",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere"
+    },
+    {
+      "id": "match_1746568800_7",
+      "timeCasa": "Vitoria",
+      "timeVisitante": "Defensa y Justicia",
+      "startTimestamp": 1746568800,
+      "data": "2025-05-06T22:00:00.000Z",
+      "horario": "22:00",
+      "campeonato": "Copa Sudamericana",
+      "canais": "Disney+ e ESPN"
+    },
+    {
+      "id": "match_1746912600_8",
+      "timeCasa": "Vitoria",
+      "timeVisitante": "Vasco da Gama",
+      "startTimestamp": 1746912600,
+      "data": "2025-05-10T21:30:00.000Z",
+      "horario": "21:30",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere"
+    },
+    {
+      "id": "match_1747269000_9",
+      "timeCasa": "Cerro Largo",
+      "timeVisitante": "Vitoria",
+      "startTimestamp": 1747269000,
+      "data": "2025-05-15T00:30:00.000Z",
+      "horario": "00:30",
+      "campeonato": "Copa Sudamericana",
+      "canais": "Paramount+"
+    }
+  ]
+}

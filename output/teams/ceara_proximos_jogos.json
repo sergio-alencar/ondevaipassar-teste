@@ -1,0 +1,107 @@
+{
+  "time": "Ceara",
+  "timeId": "1264",
+  "atualizadoEm": "2025-04-07T15:55:41.275Z",
+  "proximosJogos": [
+    {
+      "id": "match_1744484400_0",
+      "timeCasa": "Juventude",
+      "timeVisitante": "Ceara",
+      "startTimestamp": 1744484400,
+      "data": "2025-04-12T19:00:00.000Z",
+      "horario": "19:00",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere"
+    },
+    {
+      "id": "match_1744763400_1",
+      "timeCasa": "Ceara",
+      "timeVisitante": "Vasco da Gama",
+      "startTimestamp": 1744763400,
+      "data": "2025-04-16T00:30:00.000Z",
+      "horario": "00:30",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere e SporTV"
+    },
+    {
+      "id": "match_1745276400_2",
+      "timeCasa": "EC Bahia",
+      "timeVisitante": "Ceara",
+      "startTimestamp": 1745276400,
+      "data": "2025-04-21T23:00:00.000Z",
+      "horario": "23:00",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere e SporTV"
+    },
+    {
+      "id": "match_1745703000_3",
+      "timeCasa": "Ceara",
+      "timeVisitante": "Sao Paulo",
+      "startTimestamp": 1745703000,
+      "data": "2025-04-26T21:30:00.000Z",
+      "horario": "21:30",
+      "campeonato": "Brazil Serie A",
+      "canais": "Prime Video"
+    },
+    {
+      "id": "match_1746307800_4",
+      "timeCasa": "Ceara",
+      "timeVisitante": "Vitoria",
+      "startTimestamp": 1746307800,
+      "data": "2025-05-03T21:30:00.000Z",
+      "horario": "21:30",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere"
+    },
+    {
+      "id": "match_1747090800_5",
+      "timeCasa": "Santos",
+      "timeVisitante": "Ceara",
+      "startTimestamp": 1747090800,
+      "data": "2025-05-12T23:00:00.000Z",
+      "horario": "23:00",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere e SporTV"
+    },
+    {
+      "id": "match_1747508400_6",
+      "timeCasa": "Ceara",
+      "timeVisitante": "Sport Recife",
+      "startTimestamp": 1747508400,
+      "data": "2025-05-17T19:00:00.000Z",
+      "horario": "19:00",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere"
+    },
+    {
+      "id": "match_1748113200_7",
+      "timeCasa": "Botafogo",
+      "timeVisitante": "Ceara",
+      "startTimestamp": 1748113200,
+      "data": "2025-05-24T19:00:00.000Z",
+      "horario": "19:00",
+      "campeonato": "Brazil Serie A",
+      "canais": "Prime Video"
+    },
+    {
+      "id": "match_1748813400_8",
+      "timeCasa": "Ceara",
+      "timeVisitante": "Atletico Mineiro",
+      "startTimestamp": 1748813400,
+      "data": "2025-06-01T21:30:00.000Z",
+      "horario": "21:30",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere"
+    },
+    {
+      "id": "match_1749664800_9",
+      "timeCasa": "Fluminense",
+      "timeVisitante": "Ceara",
+      "startTimestamp": 1749664800,
+      "data": "2025-06-11T18:00:00.000Z",
+      "horario": "18:00",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere"
+    }
+  ]
+}

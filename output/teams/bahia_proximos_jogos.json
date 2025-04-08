@@ -1,0 +1,107 @@
+{
+  "time": "Bahia",
+  "timeId": "165469",
+  "atualizadoEm": "2025-04-07T15:55:24.233Z",
+  "proximosJogos": [
+    {
+      "id": "match_1744236000_0",
+      "timeCasa": "Nacional De Football",
+      "timeVisitante": "Bahia",
+      "startTimestamp": 1744236000,
+      "data": "2025-04-09T22:00:00.000Z",
+      "horario": "22:00",
+      "campeonato": "Copa Libertadores",
+      "canais": "Disney+ e ESPN"
+    },
+    {
+      "id": "match_1744570800_1",
+      "timeCasa": "Bahia",
+      "timeVisitante": "Mirassol",
+      "startTimestamp": 1744570800,
+      "data": "2025-04-13T19:00:00.000Z",
+      "horario": "19:00",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere"
+    },
+    {
+      "id": "match_1744936200_2",
+      "timeCasa": "Cruzeiro",
+      "timeVisitante": "Bahia",
+      "startTimestamp": 1744936200,
+      "data": "2025-04-18T00:30:00.000Z",
+      "horario": "00:30",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere e SporTV"
+    },
+    {
+      "id": "match_1745276400_3",
+      "timeCasa": "EC Bahia",
+      "timeVisitante": "Ceara",
+      "startTimestamp": 1745276400,
+      "data": "2025-04-21T23:00:00.000Z",
+      "horario": "23:00",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere e SporTV"
+    },
+    {
+      "id": "match_1745539200_4",
+      "timeCasa": "Bahia",
+      "timeVisitante": "Atletico Nacional Medellin",
+      "startTimestamp": 1745539200,
+      "data": "2025-04-25T00:00:00.000Z",
+      "horario": "00:00",
+      "campeonato": "Copa Libertadores",
+      "canais": "Disney+ e ESPN"
+    },
+    {
+      "id": "match_1745789400_5",
+      "timeCasa": "Palmeiras",
+      "timeVisitante": "EC Bahia",
+      "startTimestamp": 1745789400,
+      "data": "2025-04-27T21:30:00.000Z",
+      "horario": "21:30",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere"
+    },
+    {
+      "id": "match_1746316800_6",
+      "timeCasa": "EC Bahia",
+      "timeVisitante": "Botafogo",
+      "startTimestamp": 1746316800,
+      "data": "2025-05-04T00:00:00.000Z",
+      "horario": "00:00",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere e SporTV"
+    },
+    {
+      "id": "match_1746655200_7",
+      "timeCasa": "EC Bahia",
+      "timeVisitante": "Nacional De Football",
+      "startTimestamp": 1746655200,
+      "data": "2025-05-07T22:00:00.000Z",
+      "horario": "22:00",
+      "campeonato": "Copa Libertadores",
+      "canais": "Disney+ e ESPN"
+    },
+    {
+      "id": "match_1746921600_8",
+      "timeCasa": "Flamengo",
+      "timeVisitante": "EC Bahia",
+      "startTimestamp": 1746921600,
+      "data": "2025-05-11T00:00:00.000Z",
+      "horario": "00:00",
+      "campeonato": "Brazil Serie A",
+      "canais": "Premiere e SporTV"
+    },
+    {
+      "id": "match_1747260000_9",
+      "timeCasa": "Atletico Nacional Medellin",
+      "timeVisitante": "EC Bahia",
+      "startTimestamp": 1747260000,
+      "data": "2025-05-14T22:00:00.000Z",
+      "horario": "22:00",
+      "campeonato": "Copa Libertadores",
+      "canais": "Disney+ e ESPN"
+    }
+  ]
+}

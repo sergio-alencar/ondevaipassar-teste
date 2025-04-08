@@ -3,70 +3,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import atleticomg from "/src/assets/images/times/atleticomg.svg";
-import bahia from "/src/assets/images/times/bahia.svg";
-import botafogo from "/src/assets/images/times/botafogo.svg";
-import bragantino from "/src/assets/images/times/bragantino.svg";
-import ceara from "/src/assets/images/times/ceara.svg";
-import corinthians from "/src/assets/images/times/corinthians.svg";
-import cruzeiro from "/src/assets/images/times/cruzeiro.svg";
-import flamengo from "/src/assets/images/times/flamengo.svg";
-import fluminense from "/src/assets/images/times/fluminense.svg";
-import fortaleza from "/src/assets/images/times/fortaleza.svg";
-import gremio from "/src/assets/images/times/gremio.svg";
-import internacional from "/src/assets/images/times/internacional.svg";
-import juventude from "/src/assets/images/times/juventude.svg";
-import mirassol from "/src/assets/images/times/mirassol.svg";
-import palmeiras from "/src/assets/images/times/palmeiras.svg";
-import santos from "/src/assets/images/times/santos.svg";
-import saopaulo from "/src/assets/images/times/saopaulo.svg";
-import sport from "/src/assets/images/times/sport.svg";
-import vasco from "/src/assets/images/times/vasco.svg";
-import vitoria from "/src/assets/images/times/vitoria.svg";
-
-const imagensTimes = {
-  atleticomg,
-  bahia,
-  botafogo,
-  bragantino,
-  ceara,
-  corinthians,
-  cruzeiro,
-  flamengo,
-  fluminense,
-  fortaleza,
-  gremio,
-  internacional,
-  juventude,
-  mirassol,
-  palmeiras,
-  santos,
-  saopaulo,
-  sport,
-  vasco,
-  vitoria,
-};
-
 const DropdownMenuTime = ({ time, setSelectedTime }) => {
   const handleClick = () => {
     setSelectedTime(time);
   };
 
-  const timeKey = time.nome
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .replace(/\s+/g, "")
-    .replace(/-/g, "");
-
-  const imagemTime = imagensTimes[timeKey];
+  const baseUrl =
+    "https://raw.githubusercontent.com/sergio-alencar/ondevaipassar-teste/main/public/images/times/";
+  const urlFinal = `${baseUrl}${time.nome}.svg`;
 
   return (
     <li>
       <Link to={`/ondevaipassar-teste/time/${time.nome}`} onClick={handleClick}>
         <img
-          className="size-10"
-          src={imagemTime}
+          className="size-10 opacity-70 hover:opacity-100 transition max-sm:opacity-100 max-sm:size-14 max-sm:my-2 max-sm:"
+          src={urlFinal}
           alt={`${time.maiusculo}`}
           title={`${time.maiusculo}`}
         />

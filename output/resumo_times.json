@@ -1,0 +1,282 @@
+[
+  {
+    "time": "Atletico-Mineiro",
+    "timeId": "1313",
+    "quantidadeJogos": 10,
+    "proximoJogo": {
+      "id": "match_1744331400_0",
+      "timeCasa": "Atletico Mineiro",
+      "timeVisitante": "Deportes Iquique",
+      "startTimestamp": 1744331400,
+      "data": "2025-04-11T00:30:00.000Z",
+      "horario": "00:30",
+      "campeonato": "Copa Sudamericana"
+    }
+  },
+  {
+    "time": "Bahia",
+    "timeId": "165469",
+    "quantidadeJogos": 10,
+    "proximoJogo": {
+      "id": "match_1744236000_0",
+      "timeCasa": "Nacional De Football",
+      "timeVisitante": "Bahia",
+      "startTimestamp": 1744236000,
+      "data": "2025-04-09T22:00:00.000Z",
+      "horario": "22:00",
+      "campeonato": "Copa Libertadores"
+    }
+  },
+  {
+    "time": "Botafogo",
+    "timeId": "2051",
+    "quantidadeJogos": 10,
+    "proximoJogo": {
+      "id": "match_1744149600_0",
+      "timeCasa": "Botafogo",
+      "timeVisitante": "Carabobo",
+      "startTimestamp": 1744149600,
+      "data": "2025-04-08T22:00:00.000Z",
+      "horario": "22:00",
+      "campeonato": "Copa Libertadores"
+    }
+  },
+  {
+    "time": "Bragantino",
+    "timeId": "3165",
+    "quantidadeJogos": 10,
+    "proximoJogo": {
+      "id": "match_1744484400_0",
+      "timeCasa": "Bragantino",
+      "timeVisitante": "Botafogo",
+      "startTimestamp": 1744484400,
+      "data": "2025-04-12T19:00:00.000Z",
+      "horario": "19:00",
+      "campeonato": "Brazil Serie A"
+    }
+  },
+  {
+    "time": "Ceara",
+    "timeId": "1264",
+    "quantidadeJogos": 10,
+    "proximoJogo": {
+      "id": "match_1744484400_0",
+      "timeCasa": "Juventude",
+      "timeVisitante": "Ceara",
+      "startTimestamp": 1744484400,
+      "data": "2025-04-12T19:00:00.000Z",
+      "horario": "19:00",
+      "campeonato": "Brazil Serie A"
+    }
+  },
+  {
+    "time": "Corinthians",
+    "timeId": "4128",
+    "quantidadeJogos": 10,
+    "proximoJogo": {
+      "id": "match_1744158600_0",
+      "timeCasa": "America de Cali",
+      "timeVisitante": "Corinthians",
+      "startTimestamp": 1744158600,
+      "data": "2025-04-09T00:30:00.000Z",
+      "horario": "00:30",
+      "campeonato": "Copa Sudamericana"
+    }
+  },
+  {
+    "time": "Cruzeiro",
+    "timeId": "577",
+    "quantidadeJogos": 10,
+    "proximoJogo": {
+      "id": "match_1744245000_0",
+      "timeCasa": "Cruzeiro",
+      "timeVisitante": "Mushuc Runa",
+      "startTimestamp": 1744245000,
+      "data": "2025-04-10T00:30:00.000Z",
+      "horario": "00:30",
+      "campeonato": "Copa Sudamericana"
+    }
+  },
+  {
+    "time": "Flamengo",
+    "timeId": "1339",
+    "quantidadeJogos": 10,
+    "proximoJogo": {
+      "id": "match_1744245000_0",
+      "timeCasa": "Flamengo",
+      "timeVisitante": "Central Cordoba SdE",
+      "startTimestamp": 1744245000,
+      "data": "2025-04-10T00:30:00.000Z",
+      "horario": "00:30",
+      "campeonato": "Copa Libertadores"
+    }
+  },
+  {
+    "time": "Fluminense",
+    "timeId": "1286",
+    "quantidadeJogos": 10,
+    "proximoJogo": {
+      "id": "match_1744331400_0",
+      "timeCasa": "Fluminense",
+      "timeVisitante": "Gualberto Villarroel",
+      "startTimestamp": 1744331400,
+      "data": "2025-04-11T00:30:00.000Z",
+      "horario": "00:30",
+      "campeonato": "Copa Sudamericana"
+    }
+  },
+  {
+    "time": "Fortaleza",
+    "timeId": "43589",
+    "quantidadeJogos": 10,
+    "proximoJogo": {
+      "id": "match_1744331400_0",
+      "timeCasa": "Colo Colo",
+      "timeVisitante": "Fortaleza",
+      "startTimestamp": 1744331400,
+      "data": "2025-04-11T00:30:00.000Z",
+      "horario": "00:30",
+      "campeonato": "Copa Libertadores"
+    }
+  },
+  {
+    "time": "Gremio",
+    "timeId": "1312",
+    "quantidadeJogos": 10,
+    "proximoJogo": {
+      "id": "match_1744149600_0",
+      "timeCasa": "Gremio",
+      "timeVisitante": "Atletico Grau",
+      "startTimestamp": 1744149600,
+      "data": "2025-04-08T22:00:00.000Z",
+      "horario": "22:00",
+      "campeonato": "Copa Sudamericana"
+    }
+  },
+  {
+    "time": "Internacional",
+    "timeId": "1422",
+    "quantidadeJogos": 10,
+    "proximoJogo": {
+      "id": "match_1744322400_0",
+      "timeCasa": "Internacional",
+      "timeVisitante": "Atletico Nacional Medellin",
+      "startTimestamp": 1744322400,
+      "data": "2025-04-10T22:00:00.000Z",
+      "horario": "22:00",
+      "campeonato": "Copa Libertadores"
+    }
+  },
+  {
+    "time": "Juventude",
+    "timeId": "45589",
+    "quantidadeJogos": 10,
+    "proximoJogo": {
+      "id": "match_1744484400_0",
+      "timeCasa": "Juventude",
+      "timeVisitante": "Ceara",
+      "startTimestamp": 1744484400,
+      "data": "2025-04-12T19:00:00.000Z",
+      "horario": "19:00",
+      "campeonato": "Brazil Serie A"
+    }
+  },
+  {
+    "time": "Mirassol",
+    "timeId": "8555",
+    "quantidadeJogos": 10,
+    "proximoJogo": {
+      "id": "match_1744570800_0",
+      "timeCasa": "Bahia",
+      "timeVisitante": "Mirassol",
+      "startTimestamp": 1744570800,
+      "data": "2025-04-13T19:00:00.000Z",
+      "horario": "19:00",
+      "campeonato": "Brazil Serie A"
+    }
+  },
+  {
+    "time": "Palmeiras",
+    "timeId": "1287",
+    "quantidadeJogos": 10,
+    "proximoJogo": {
+      "id": "match_1744245000_0",
+      "timeCasa": "Palmeiras",
+      "timeVisitante": "Cerro Porteno",
+      "startTimestamp": 1744245000,
+      "data": "2025-04-10T00:30:00.000Z",
+      "horario": "00:30",
+      "campeonato": "Copa Libertadores"
+    }
+  },
+  {
+    "time": "Santos",
+    "timeId": "579",
+    "quantidadeJogos": 10,
+    "proximoJogo": {
+      "id": "match_1744583400_0",
+      "timeCasa": "Fluminense",
+      "timeVisitante": "Santos",
+      "startTimestamp": 1744583400,
+      "data": "2025-04-13T22:30:00.000Z",
+      "horario": "22:30",
+      "campeonato": "Brazil Serie A"
+    }
+  },
+  {
+    "time": "Sao Paulo",
+    "timeId": "1314",
+    "quantidadeJogos": 10,
+    "proximoJogo": {
+      "id": "match_1744331400_0",
+      "timeCasa": "Sao Paulo",
+      "timeVisitante": "Alianza Lima",
+      "startTimestamp": 1744331400,
+      "data": "2025-04-11T00:30:00.000Z",
+      "horario": "00:30",
+      "campeonato": "Copa Libertadores"
+    }
+  },
+  {
+    "time": "Sport-Recife",
+    "timeId": "1421",
+    "quantidadeJogos": 10,
+    "proximoJogo": {
+      "id": "match_1744502400_0",
+      "timeCasa": "Vasco da Gama",
+      "timeVisitante": "Sport Recife",
+      "startTimestamp": 1744502400,
+      "data": "2025-04-13T00:00:00.000Z",
+      "horario": "00:00",
+      "campeonato": "Brazil Serie A"
+    }
+  },
+  {
+    "time": "Vasco-da-Gama",
+    "timeId": "56101",
+    "quantidadeJogos": 10,
+    "proximoJogo": {
+      "id": "match_1744158600_0",
+      "timeCasa": "Vasco da Gama",
+      "timeVisitante": "Academia Puerto Cabello",
+      "startTimestamp": 1744158600,
+      "data": "2025-04-09T00:30:00.000Z",
+      "horario": "00:30",
+      "campeonato": "Copa Sudamericana"
+    }
+  },
+  {
+    "time": "Vitoria",
+    "timeId": "1419",
+    "quantidadeJogos": 10,
+    "proximoJogo": {
+      "id": "match_1744322400_0",
+      "timeCasa": "Defensa y Justicia",
+      "timeVisitante": "Vitoria",
+      "startTimestamp": 1744322400,
+      "data": "2025-04-10T22:00:00.000Z",
+      "horario": "22:00",
+      "campeonato": "Copa Sudamericana"
+    }
+  }
+]

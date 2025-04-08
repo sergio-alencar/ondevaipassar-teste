@@ -1,15 +1,17 @@
+// canais.jsx
+
 const canais = {
   band: {
     nome: "Band",
-    url: "https://www.band.uol.com.br/ao-vivo",
+    url: "https://www.band.uol.com.br/ao-vivo/",
   },
   cazetv: {
     nome: "CazéTV",
-    url: "https://www.youtube.com/cazetv",
+    url: "https://www.youtube.com/cazetv/",
   },
-  "disney-plus": {
+  disneyplus: {
     nome: "Disney+",
-    url: "https://www.disneyplus.com/pt-br/browse/espn",
+    url: "https://www.disneyplus.com/pt-br/",
   },
   espn: {
     nome: "ESPN",
@@ -17,13 +19,21 @@ const canais = {
   },
   globo: {
     nome: "Globo",
-    url: "https://globoplay.globo.com/tv-globo/ao-vivo",
+    url: "https://globoplay.globo.com/tv-globo/ao-vivo/",
+  },
+  globoplay: {
+    nome: "Globoplay",
+    url: "https://globoplay.globo.com/",
   },
   goat: {
     nome: "Canal GOAT",
-    url: "https://www.youtube.com/@canalgoatbr",
+    url: "https://www.youtube.com/@canalgoatbr/",
   },
-  "paramount-plus": {
+  nossofutebol: {
+    nome: "Nosso Futebol",
+    url: "https://www.nossofutebol.com/",
+  },
+  paramountplus: {
     nome: "Paramount Plus",
     url: "https://www.paramountplus.com/br/collections/sports-hub-br/",
   },
@@ -31,9 +41,9 @@ const canais = {
     nome: "Premiere",
     url: "https://premiere.globo.com/",
   },
-  "prime-video": {
+  prime_video: {
     nome: "Prime Video",
-    url: "https://www.primevideo.com/sports",
+    url: "https://www.primevideo.com/sports/",
   },
   record: {
     nome: "Record",
@@ -41,15 +51,15 @@ const canais = {
   },
   sbt: {
     nome: "SBT",
-    url: "https://www.sbt.com.br/ao-vivo",
+    url: "https://www.sbt.com.br/ao-vivo/",
   },
   sportv: {
     nome: "SporTV",
-    url: "https://globoplay.globo.com/sportv/ao-vivo",
+    url: "https://globoplay.globo.com/sportv/ao-vivo/",
   },
-  "tnt-sports": {
+  tntsports: {
     nome: "TNT Sports",
-    url: "https://play.max.com/tnt-sports",
+    url: "https://play.max.com/tnt-sports/",
   },
   youtube: {
     nome: "YouTube",

@@ -1,7 +1,7 @@
 // times.jsx
 
 const times = [
-  { nome: "atleticomg", maiusculo: "Atlético-MG", cor: "black" },
+  { nome: "atletico_mineiro", maiusculo: "Atlético-MG", cor: "black" },
   { nome: "bahia", maiusculo: "Bahia", cor: "blue-900" },
   { nome: "botafogo", maiusculo: "Botafogo", cor: "black" },
   { nome: "bragantino", maiusculo: "Bragantino", cor: "red-800" },
@@ -17,9 +17,9 @@ const times = [
   { nome: "mirassol", maiusculo: "Mirassol", cor: "green-900" },
   { nome: "palmeiras", maiusculo: "Palmeiras", cor: "green-900" },
   { nome: "santos", maiusculo: "Santos", cor: "black" },
-  { nome: "saopaulo", maiusculo: "São Paulo", cor: "red-800" },
-  { nome: "sport", maiusculo: "Sport", cor: "red-800" },
-  { nome: "vasco", maiusculo: "Vasco", cor: "black" },
+  { nome: "sao_paulo", maiusculo: "São Paulo", cor: "red-800" },
+  { nome: "sport_recife", maiusculo: "Sport", cor: "red-800" },
+  { nome: "vasco_da_gama", maiusculo: "Vasco", cor: "black" },
   { nome: "vitoria", maiusculo: "Vitória", cor: "red-800" },
 ];
 

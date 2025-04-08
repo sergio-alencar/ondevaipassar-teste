@@ -1,15 +1,39 @@
 // Header.jsx
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import DropdownMenu from "../Components/DropdownMenu";
 import logoHeader from "/src/assets/images/icones/logo-3.svg";
 import escudo from "/src/assets/images/icones/escudo.svg";
+import times from "./times";
 
 const Header = ({ selectedTime, setSelectedTime }) => {
-  const headerColor = selectedTime ? selectedTime.cor : "purple-900";
+  const [headerColor, setHeaderColor] = useState("purple-900");
   const [isMenuVisible, setIsMenuVisible] = useState(false);
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
-  console.log("Header Selected Time:", selectedTime);
+  const dropdownRef = useRef(null);
+  const escudoRef = useRef(null);
+
+  useEffect(() => {
+    const getTeamFromURL = () => {
+      const path = window.location.pathname.toLowerCase();
+      const foundTeam = times.find((team) =>
+        path.includes(team.nome.toLowerCase())
+      );
+      return foundTeam || null;
+    };
+
+    const teamFromURL = getTeamFromURL();
+
+    if (teamFromURL) {
+      setHeaderColor(teamFromURL.cor);
+      if (setSelectedTime) {
+        setSelectedTime(teamFromURL);
+      }
+    } else {
+      setHeaderColor(selectedTime ? selectedTime.cor : "purple-900");
+    }
+  }, [selectedTime, setSelectedTime]);
 
   useEffect(() => {
     const menuBotao = document.getElementById("menu-botao");
@@ -86,6 +110,26 @@ const Header = ({ selectedTime, setSelectedTime }) => {
     }
   }, [isMenuVisible]);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target) &&
+        escudoRef.current &&
+        !escudoRef.current.contains(event.target)
+      ) {
+        setIsDropdownVisible(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, []);
+
+  const toggleDropdown = () => {
+    setIsDropdownVisible((prev) => !prev);
+  };
+
   return (
     <>
       <div
@@ -95,10 +139,10 @@ const Header = ({ selectedTime, setSelectedTime }) => {
       <header
         className={`bg-${headerColor} sticky top-0 px-12 max-sm:px-2 z-30`}
       >
-        <div className="flex justify-between items-center mx-12 max-sm:mx-4">
+        <div className="flex justify-between  items-center mx-12 max-sm:mx-4">
           <button
             id="menu-botao"
-            className="flex gap-2 items-center cursor-pointer"
+            className="flex gap-4 items-center cursor-pointer"
           >
             <span className="h-5 w-7 flex flex-col justify-between *:h-0.5 *:rounded-md *:bg-white">
               <span></span>
@@ -116,17 +160,23 @@ const Header = ({ selectedTime, setSelectedTime }) => {
               alt="Onde Vai Passar"
             />
           </a>
-          <div className="flex gap-4 py-6 hover:*:block">
+          <div className="flex gap-4 py-6 cursor-pointer hover:*:block">
             <p className="text-white text-xl uppercase font-bold select-none max-sm:hidden">
               times
             </p>
             <img
-              className="size-7"
+              ref={escudoRef}
+              onClick={toggleDropdown}
+              className="size-7 cursor-pointer"
               src={escudo}
               alt="Escolha o time"
               title="Escolha o time"
             />
-            <DropdownMenu setSelectedTime={setSelectedTime} />
+            <DropdownMenu
+              ref={dropdownRef}
+              setSelectedTime={setSelectedTime}
+              isVisible={isDropdownVisible}
+            />
           </div>
         </div>
       </header>

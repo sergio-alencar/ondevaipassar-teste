@@ -3,115 +3,324 @@
 import React, { useEffect, useState } from "react";
 import times from "../Components/times";
 import { useParams } from "react-router-dom";
-import canais from "../Components/canais";
-import escudo from "/src/assets/images/icones/escudo.svg";
+import escudo from "/src/assets/images/icones/escudo-cinza.svg";
 import versus from "/src/assets/images/icones/versus.svg";
+import canais from "../Components/canais";
 
-import atleticomg from "/src/assets/images/times/atleticomg.svg";
-import bahia from "/src/assets/images/times/bahia.svg";
-import botafogo from "/src/assets/images/times/botafogo.svg";
-import bragantino from "/src/assets/images/times/bragantino.svg";
-import ceara from "/src/assets/images/times/ceara.svg";
-import corinthians from "/src/assets/images/times/corinthians.svg";
-import cruzeiro from "/src/assets/images/times/cruzeiro.svg";
-import flamengo from "/src/assets/images/times/flamengo.svg";
-import fluminense from "/src/assets/images/times/fluminense.svg";
-import fortaleza from "/src/assets/images/times/fortaleza.svg";
-import gremio from "/src/assets/images/times/gremio.svg";
-import internacional from "/src/assets/images/times/internacional.svg";
-import juventude from "/src/assets/images/times/juventude.svg";
-import mirassol from "/src/assets/images/times/mirassol.svg";
-import palmeiras from "/src/assets/images/times/palmeiras.svg";
-import santos from "/src/assets/images/times/santos.svg";
-import saopaulo from "/src/assets/images/times/saopaulo.svg";
-import sport from "/src/assets/images/times/sport.svg";
-import vasco from "/src/assets/images/times/vasco.svg";
-import vitoria from "/src/assets/images/times/vitoria.svg";
-
-import band from "/src/assets/images/canais/band.svg";
-import cazetv from "/src/assets/images/canais/cazetv.svg";
-import disneyplus from "/src/assets/images/canais/disneyplus.svg";
-import espn from "/src/assets/images/canais/espn.svg";
-import globo from "/src/assets/images/canais/globo.svg";
-import goat from "/src/assets/images/canais/goat.svg";
-import nossofutebol from "/src/assets/images/canais/nossofutebol.svg";
-import paramountplus from "/src/assets/images/canais/paramountplus.svg";
-import premiere from "/src/assets/images/canais/premiere.svg";
-import primevideo from "/src/assets/images/canais/primevideo.svg";
-import record from "/src/assets/images/canais/record.svg";
-import sbt from "/src/assets/images/canais/sbt.svg";
-import sportv from "/src/assets/images/canais/sportv.svg";
-import tntsports from "/src/assets/images/canais/tntsports.svg";
-import youtube from "/src/assets/images/canais/youtube.svg";
-
-const imagensTimes = {
-  atleticomg,
-  bahia,
-  botafogo,
-  bragantino,
-  ceara,
-  corinthians,
-  cruzeiro,
-  flamengo,
-  fluminense,
-  fortaleza,
-  gremio,
-  internacional,
-  juventude,
-  mirassol,
-  palmeiras,
-  santos,
-  saopaulo,
-  sport,
-  vasco,
-  vitoria,
+const MAPEAMENTO_ARQUIVOS = {
+  atletico_mineiro: "atletico_mineiro",
+  "atletico-mineiro": "atletico_mineiro",
+  atleticomg: "atletico_mineiro",
+  "atlético-mg": "atletico_mineiro",
+  atléticomg: "atletico_mineiro",
+  atlético_mg: "atletico_mineiro",
+  atletico_mg: "atletico_mineiro",
+  "atletico mg": "atletico_mineiro",
+  "atlético mg": "atletico_mineiro",
+  sao_paulo: "sao_paulo",
+  "sao-paulo": "sao_paulo",
+  saopaulo: "sao_paulo",
 };
 
-const imagensCanais = {
-  band,
-  cazetv,
-  disneyplus,
-  espn,
-  globo,
-  goat,
-  nossofutebol,
-  paramountplus,
-  premiere,
-  primevideo,
-  record,
-  sbt,
-  sportv,
-  tntsports,
-  youtube,
+const formatarNomeTime = (nomeCompleto) => {
+  const casosEspeciais = {
+    "Atlético Mineiro": "Atlético-MG",
+    "Red Bull Bragantino": "Bragantino",
+    "Vasco da Gama": "Vasco",
+    "Estudiantes de La Plata": "Estudiantes",
+    "Racing Club de Montevideo": "Racing-URU",
+    "Academia Puerto Cabello": "Puerto Cabello",
+    "Universidad Catolica del Ecuador": "Univ. Cat. Ecuador",
+    Ceara: "Ceará",
+    Gremio: "Grêmio",
+    "Sao Paulo": "São Paulo",
+    Vitoria: "Vitória",
+    "Central Cordoba SdE": "Central Córdoba",
+    "LDU Quito": "LDU",
+    "Gualberto Villarroel": "GV San José",
+    "San Jose de Oruro": "GV San José",
+    "Atletico Nacional Medellin": "Atl. Nacional",
+    "Nacional De Football": "Nacional",
+    "Atletico Mineiro": "Atlético-MG",
+    "Cerro Porteno": "Cerro Porteño",
+    "CA Talleres de Córdoba": "Talleres",
+    "Libertad Asuncion": "Libertad",
+    "Universidad de Chile": "Univ. Chile",
+    "Estudiantes LP": "Estudiantes",
+    Huracan: "Huracán",
+    "Central Cordoba": "Central Córdoba",
+    "Union Espanola": "Unión Española",
+    Bolivar: "Bolívar",
+    "FBC Melgar": "Melgar",
+  };
+
+  if (casosEspeciais[nomeCompleto]) {
+    return casosEspeciais[nomeCompleto];
+  }
+
+  const regras = [
+    {
+      regex: /^(?:Club|Clube)\s+Atlético\s+(.+)/i,
+      substituicao: "$1",
+    },
+    { regex: /^Club (.*)/i, substituicao: "$1" },
+    { regex: /^EC (.*)/i, substituicao: "$1" },
+    { regex: /^Atlético (.*)/i, substituicao: "Atl. $1" },
+    { regex: /^Atletico (.*)/i, substituicao: "Atl. $1" },
+    { regex: /^America (.*)/i, substituicao: "América $1" },
+    { regex: /^Union (.*)/i, substituicao: "Unión $1" },
+    { regex: /(.*) F\.?C\.?$/i, substituicao: "$1" },
+    {
+      regex: /^Universidad\s+Católica\s+(.+)/i,
+      substituicao: "Univ. Cat. $1",
+    },
+    {
+      regex: /^(?:Deportes|Deportivo)\s+(.+)/i,
+      substituicao: "Dep. $1",
+    },
+    {
+      regex: /^Universidad\s+(.+)/i,
+      substituicao: "Univ. $1",
+    },
+  ];
+
+  let nomeSimplificado = nomeCompleto.trim();
+
+  for (const regra of regras) {
+    if (new RegExp(regra.regex).test(nomeSimplificado)) {
+      nomeSimplificado = nomeSimplificado.replace(
+        new RegExp(regra.regex),
+        regra.substituicao
+      );
+      break;
+    }
+  }
+
+  return nomeSimplificado;
+};
+
+const separarCanais = (str) => {
+  return str
+    .replace(/\s+e\s+/gi, ",")
+    .split(",")
+    .map((c) => c.trim())
+    .filter(Boolean);
+};
+
+const MAPEAMENTO_CANAIS = {
+  band: "band",
+  bandeirantes: "band",
+  "band sports": "band",
+  cazetv_youtube: "cazetv",
+  disney: "disneyplus",
+  "disney+": "disneyplus",
+  disney_plus: "disneyplus",
+  "disney-plus": "disneyplus",
+  "star+": "disneyplus",
+  espn: "espn",
+  "espn brasil": "espn",
+  "espn+": "espn",
+  globo: "globo",
+  globoplay: "globoplay",
+  goat: "goat",
+  "nosso futebol": "nossofutebol",
+  "nosso-futebol": "nossofutebol",
+  nosso_futebol: "nossofutebol",
+  paramount: "paramountplus",
+  paramountplus: "paramountplus",
+  "paramount-plus": "paramountplus",
+  "paramount plus": "paramountplus",
+  paramount_plus: "paramountplus",
+  "paramount+": "paramountplus",
+  premiere: "premiere",
+  "premiere fc": "premiere",
+  "premiere canal": "premiere",
+  premiere_canal: "premiere",
+  prime: "primevideo",
+  "prime-video": "primevideo",
+  prime_video: "primevideo",
+  "prime video": "primevideo",
+  "record-tv": "record",
+  "record tv": "record",
+  record_tv: "record",
+  recordtv: "record",
+  record: "record",
+  sbt: "sbt",
+  "sbt tv": "sbt",
+  "sportv 2": "sportv",
+  "sportv 3": "sportv",
+  tnt: "tntsports",
+  tnt_sports: "tntsports",
+  "tnt-sports": "tntsports",
+  "tnt sports": "tntsports",
+  youtube: "youtube",
+};
+
+const obterImagemCanal = (nomeCanal) => {
+  if (!nomeCanal) return null;
+
+  const nomeLimpado = nomeCanal
+    .replace(/\(.*?\)/g, "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim();
+
+  const nomeChave = nomeLimpado.replace(/\s+/g, "_").replace(/[^a-z0-9_]/g, "");
+
+  const chaveFinal = MAPEAMENTO_CANAIS[nomeChave] || nomeChave;
+
+  const baseUrl =
+    "https://raw.githubusercontent.com/sergio-alencar/ondevaipassar-teste/main/public/images/canais/";
+
+  return `${baseUrl}${chaveFinal}.svg`;
+};
+
+const formatarNomeCampeonato = (nomeCompleto) => {
+  const padroes = [
+    { regex: /brasileirão.*/i, substituicao: "Brasileirão" },
+    { regex: /brazil serie a.*/i, substituicao: "Brasileirão" },
+    { regex: /conmebol libertadores/i, substituicao: "Libertadores" },
+    { regex: /copa libertadores/i, substituicao: "Libertadores" },
+    { regex: /conmebol sudamericana/i, substituicao: "Sul-Americana" },
+    { regex: /copa sudamericana/i, substituicao: "Sul-Americana" },
+    { regex: /copa do brasil/i, substituicao: "Copa do Brasil" },
+    { regex: /(.*?)(?:,| -| –| \()/i, substituicao: "$1" },
+    {
+      regex: /^(.*?)(?: serie | group| playoff| fase| temporada).*/i,
+      substituicao: "$1",
+    },
+  ];
+
+  let nomeSimplificado = nomeCompleto.trim();
+  for (const padrao of padroes) {
+    nomeSimplificado = nomeSimplificado.replace(
+      padrao.regex,
+      padrao.substituicao
+    );
+  }
+
+  return nomeSimplificado;
 };
 
 const TimePage = () => {
   const { nome } = useParams();
   const time = times.find((t) => t.nome === nome);
   const [jogosExibidos, setJogosExibidos] = useState(3);
-  const [jogosDoTime, setJogosDoTime] = useState([]);
+  const [proximosJogos, setProximosJogos] = useState([]);
+  const [carregando, setCarregando] = useState(true);
+  const [erro, setErro] = useState(null);
+
+  const normalizarNomeParaImagem = (nomeTime) => {
+    const nomeFormatado = formatarNomeTime(nomeTime);
+
+    return nomeFormatado
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .replace(/[-\s]/g, "_")
+      .replace(/[^a-z0-9_]/g, "")
+      .replace(/_+/g, "_")
+      .replace(/(^_|_$)/g, "");
+  };
+
+  const normalizarNomeTime = (nomeTime) => {
+    return nomeTime
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .replace(/\s+/g, "_")
+      .replace(/-/g, "_")
+      .replace("atlético_mg", "atletico_mineiro")
+      .replace("são_paulo", "sao_paulo")
+      .replace("paramount+", "paramountplus")
+      .replace("disney+", "disneyplus")
+      .replace("premiere_canal", "premiere")
+      .replace("premiere_", "premiere")
+      .replace("tv_globo", "globo")
+      .replace("tv globo", "globo");
+  };
+
+  const prepararNomeParaExibicao = (nomeTime) => {
+    const nomeFormatado = formatarNomeTime(nomeTime);
+
+    const ajustesManuais = {
+      "Atl. Mineiro": "Atlético-MG",
+      "Atl. Nacional": "Atl. Nacional",
+      "Univ. Cat. Ecuador": "Univ. Católica-EQU",
+      "Sport Recife": "Sport",
+    };
+
+    return ajustesManuais[nomeFormatado] || nomeFormatado;
+  };
 
   useEffect(() => {
     const carregarJogos = async () => {
       try {
-        const nomeFormatado = nome
-          .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, "")
-          .toLowerCase()
-          .replace(/\s+/g, "-");
-        console.log("Nome formatado:", nomeFormatado);
+        setCarregando(true);
+        setErro(null);
 
-        const response = await fetch(
-          `https://sergio-alencar.github.io/ondevaipassar-api/${nomeFormatado}.json`
-        );
-        const data = await response.json();
-        console.log("Dados da API:", data);
+        const normalizarNomeArquivo = (nomeTime) => {
+          const nomePadronizado = nomeTime
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .toLowerCase()
+            .replace(/(\s+|[-–])/g, "_")
+            .replace(/[^a-z0-9_]/g, "")
+            .replace(/_+/g, "_")
+            .replace(/(^_|_$)/g, "");
 
-        const jogosDoTime = data[nomeFormatado] || [];
-        setJogosDoTime(jogosDoTime);
+          return MAPEAMENTO_ARQUIVOS[nomePadronizado] || nomePadronizado;
+        };
+
+        const nomeFormatado = normalizarNomeArquivo(nome);
+
+        const basePath =
+          process.env.NODE_ENV === "development"
+            ? "/output/teams"
+            : "https://sergio-alencar.github.io/ondevaipassar-teste/output/teams";
+
+        const url = `${basePath}/${nomeFormatado}_proximos_jogos.json`;
+
+        const response = await fetch(url);
+
+        const contentType = response.headers.get("content-type");
+        if (contentType && contentType.includes("text/html")) {
+          throw new Error("O servidor retornou uma página HTML em vez de JSON");
+        }
+
+        if (!response.ok) {
+          throw new Error(
+            `Erro HTTP: ${response.status} - ${response.statusText}`
+          );
+        }
+
+        const text = await response.text();
+        let data;
+
+        try {
+          data = JSON.parse(text);
+        } catch (parseError) {
+          console.error("Erro ao parsear JSON:", parseError);
+          console.error("Conteúdo recebido:", text);
+          throw new Error("Resposta inválida do servidor - não é JSON válido");
+        }
+
+        if (!data.proximosJogos || data.proximosJogos.length === 0) {
+          throw new Error("Nenhum jogo encontrado no arquivo.");
+        }
+
+        const jogosOrdenados = data.proximosJogos.sort((a, b) => {
+          return new Date(a.data) - new Date(b.data);
+        });
+
+        setProximosJogos(jogosOrdenados);
       } catch (error) {
-        console.error("Erro ao carregar os jogos:", error);
-        setJogosDoTime([]);
+        console.error("Erro detalhado:", error);
+        setErro(`Erro ao carregar os jogos: ${error.message}`);
+        setProximosJogos([]);
+      } finally {
+        setCarregando(false);
       }
     };
 
@@ -119,40 +328,51 @@ const TimePage = () => {
   }, [nome]);
 
   if (!time) {
-    return <h2 className="text-red-600">Time não encontrado.</h2>;
+    return (
+      <h2 className="text-red-600 text-center text-2xl">
+        Time não encontrado.
+      </h2>
+    );
   }
 
-  const formatarData = (data) => {
-    let dia, mes, ano;
+  if (carregando) {
+    return (
+      <div className="flex justify-center items-center py-12">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+      </div>
+    );
+  }
 
-    if (data.includes("/")) {
-      [dia, mes, ano] = data.split("/");
-    } else if (data.includes(" ")) {
-      const partes = data.split(" ");
-      dia = partes[0];
-      mes = partes[1];
-      ano = partes[2];
+  if (erro) {
+    return (
+      <div className="text-center py-8">
+        <p className="text-red-500 mb-2">Erro ao carregar os jogos:</p>
+        <p className="text-gray-600">{erro}</p>
+        <p className="text-gray-500 mt-4">
+          Verifique se os dados foram gerados corretamente pelo scraper.
+        </p>
+      </div>
+    );
+  }
 
-      const meses = {
-        jan: "01",
-        fev: "02",
-        mar: "03",
-        abr: "04",
-        mai: "05",
-        jun: "06",
-        jul: "07",
-        ago: "08",
-        set: "09",
-        out: "10",
-        nov: "11",
-        dez: "12",
-      };
-      mes = meses[mes.toLowerCase()] || "01";
-    } else {
-      return data;
+  const obterImagemTime = (nomeTime) => {
+    try {
+      const chave = normalizarNomeParaImagem(nomeTime);
+      const baseUrl =
+        "https://raw.githubusercontent.com/sergio-alencar/ondevaipassar-teste/main/public/images/times/";
+      const urlFinal = `${baseUrl}${chave}.svg`;
+
+      console.log(`Tentando carregar imagem para: ${nomeTime} -> ${chave}`);
+
+      return urlFinal;
+    } catch (error) {
+      console.error(`Erro ao processar nome do time ${nomeTime}:`, error);
+      return escudo;
     }
+  };
 
-    const dataObj = new Date(ano, mes - 1, dia);
+  const formatarTimestamp = (timestamp) => {
+    if (!timestamp) return "Data não disponível";
 
     const mesesAbreviados = [
       "jan",
@@ -169,23 +389,26 @@ const TimePage = () => {
       "dez",
     ];
 
-    const diasDaSemanaAbreviados = [
-      "dom",
-      "seg",
-      "ter",
-      "qua",
-      "qui",
-      "sex",
-      "sáb",
+    const diasDaSemana = [
+      "domingo",
+      "segunda",
+      "terça",
+      "quarta",
+      "quinta",
+      "sexta",
+      "sábado",
     ];
 
-    const mesAbreviado = mesesAbreviados[dataObj.getMonth()];
-    const diaDaSemana = diasDaSemanaAbreviados[dataObj.getDay()];
+    const date = new Date(timestamp * 1000);
 
-    return `${dia}/${mesAbreviado}, ${diaDaSemana}`;
+    const dia = date.getDate().toString().padStart(2, "0");
+    const mes = mesesAbreviados[date.getMonth()];
+    const diaSemana = diasDaSemana[date.getDay()];
+    const horas = date.getHours().toString().padStart(2, "0");
+    const minutos = date.getMinutes().toString().padStart(2, "0");
+
+    return `${dia}/${mes}, ${diaSemana}, ${horas}:${minutos}`;
   };
-
-  console.log("Jogos do time:", jogosDoTime);
 
   return (
     <div className="grid grid-cols-1 items-center">
@@ -194,124 +417,110 @@ const TimePage = () => {
       >
         {time.maiusculo}
       </p>
+
       <ul className="divide-y divide-gray-300">
-        {jogosDoTime.length > 0 ? (
-          jogosDoTime.slice(0, jogosExibidos).map((jogo, index) => {
-            const timeCasaKey = jogo.timeCasa
-              .normalize("NFD")
-              .replace(/[\u0300-\u036f]/g, "")
-              .toLowerCase()
-              .replace(/\s+/g, "")
-              .replace(/-/g, "");
-            const timeVisitanteKey = jogo.timeVisitante
-              .normalize("NFD")
-              .replace(/[\u0300-\u036f]/g, "")
-              .toLowerCase()
-              .replace(/\s+/g, "")
-              .replace(/-/g, "");
+        {proximosJogos.length > 0 ? (
+          proximosJogos.slice(0, jogosExibidos).map((jogo, index) => (
+            <li key={`${jogo.id}-${index}`} className="py-6">
+              <div className="grid grid-cols-[1fr_400px_1fr] gap-2 py-8 px-4 max-sm:flex max-sm:flex-col max-sm:items-center max-sm:gap-6 max-sm:py-4">
+                <div className="flex items-center justify-self-end gap-4">
+                  <img
+                    crossOrigin="anonymous"
+                    className="size-32 max-sm:size-18"
+                    src={obterImagemTime(jogo.timeCasa)}
+                    alt={prepararNomeParaExibicao(jogo.timeCasa)}
+                    title={prepararNomeParaExibicao(jogo.timeCasa)}
+                    onError={(e) => {
+                      console.error(`Erro ao carregar: ${e.target.src}`);
+                      e.target.src = escudo;
+                      e.target.onerror = null;
+                    }}
+                    loading="lazy"
+                  />
+                  <img className="size-6" src={versus} alt="versus" />
+                  <img
+                    crossOrigin="anonymous"
+                    className="size-32 max-sm:size-18"
+                    src={obterImagemTime(jogo.timeVisitante)}
+                    alt={prepararNomeParaExibicao(jogo.timeVisitante)}
+                    title={prepararNomeParaExibicao(jogo.timeVisitante)}
+                    onError={(e) => {
+                      console.error(`Erro ao carregar: ${e.target.src}`);
+                      e.target.src = escudo;
+                      e.target.onerror = null;
+                    }}
+                    loading="lazy"
+                  />
+                </div>
+                <div className="flex items-center justify-center">
+                  <ul className="justify-items-center space-y-2 *:text-xl max-sm:*:text-lg">
+                    <li className={`text-${time.cor} uppercase font-bold`}>
+                      {prepararNomeParaExibicao(jogo.timeCasa)}{" "}
+                      <span className="lowercase">x</span>{" "}
+                      {prepararNomeParaExibicao(jogo.timeVisitante)}
+                    </li>
+                    <li className={`text-${time.cor} uppercase font-bold`}>
+                      {formatarTimestamp(jogo.startTimestamp)}
+                    </li>
+                    <li className={`text-${time.cor} uppercase font-bold`}>
+                      {formatarNomeCampeonato(jogo.campeonato)}
+                    </li>
+                  </ul>
+                </div>
+                <div className="flex justify-self-start items-center gap-6 flex-wrap max-sm:justify-self-center max-sm:justify-items-center max-sm:flex-nowrap max-sm:overflow-x-auto">
+                  {jogo.canais && jogo.canais.length > 0 ? (
+                    separarCanais(jogo.canais).map((canal, idx) => {
+                      console.log("Canal separado:", canal);
 
-            const imagemTimeCasa = imagensTimes[timeCasaKey] || escudo;
-            const imagemTimeVisitante =
-              imagensTimes[timeVisitanteKey] || escudo;
+                      const imagemCanal = obterImagemCanal(canal);
+                      const nomeNormalizado = normalizarNomeTime(canal);
+                      const url = canais[nomeNormalizado]?.url;
+                      const alt = canais[nomeNormalizado]?.nome;
+                      const title = canais[nomeNormalizado]?.nome;
+                      console.log(nomeNormalizado);
 
-            console.log(
-              "Time Casa:",
-              jogo.timeCasa,
-              "Chave:",
-              timeCasaKey,
-              "Imagem:",
-              imagemTimeCasa
-            );
-            console.log(
-              "Time Visitante:",
-              jogo.timeVisitante,
-              "Chave:",
-              timeVisitanteKey,
-              "Imagem:",
-              imagemTimeVisitante
-            );
-
-            return (
-              <li key={index} className="py-6">
-                <div className="grid grid-cols-[1fr_400px_1fr] py-8 px-4 max-sm:flex max-sm:flex-col max-sm:items-center max-sm:gap-6 max-sm:py-4">
-                  <div className="flex items-center justify-self-end gap-4">
-                    <img
-                      className="size-32 max-sm:size-18"
-                      src={imagemTimeCasa}
-                      alt={jogo.timeCasa}
-                    />
-                    <img className="size-6" src={versus} alt="versus" />
-                    <img
-                      className="size-32 max-sm:size-18"
-                      src={imagemTimeVisitante}
-                      alt={jogo.timeVisitante}
-                    />
-                  </div>
-                  <div className="flex items-center justify-center">
-                    <ul className="justify-items-center space-y-2 *:text-xl max-sm:*:text-lg">
-                      <li className={`text-${time.cor} uppercase font-bold`}>
-                        {jogo.timeCasa} x {jogo.timeVisitante}
-                      </li>
-                      <li className={`text-${time.cor} uppercase font-bold`}>
-                        {formatarData(jogo.data)}, {jogo.horario}
-                      </li>
-                      <li className={`text-${time.cor} uppercase font-bold`}>
-                        {jogo.campeonato}
-                      </li>
-                    </ul>
-                  </div>
-                  {jogo.transmissao.length ? (
-                    <div className="flex justify-self-start items-center gap-8 *:*:size-24">
-                      {jogo.transmissao.map((canal, i) => {
-                        const canalKey = canal
-                          .normalize("NFD")
-                          .replace(/[\u0300-\u036f]/g, "")
-                          .toLowerCase()
-                          .replace(/\s+/g, "")
-                          .replace(/-/g, "");
-
-                        const imagemCanal = imagensCanais[canalKey] || escudo;
-
-                        return (
+                      return (
+                        imagemCanal && (
                           <a
-                            className="relative z-20"
-                            key={i}
-                            href={canais[canal]?.url || "#"}
+                            key={`${canal}-${idx}`}
+                            href={url}
                             target="_blank"
                             rel="noopener noreferrer"
                           >
                             <img
-                              className="max-sm:size-18"
                               src={imagemCanal}
-                              alt={canal}
+                              alt={alt}
+                              title={title}
+                              className="w-32 mr-2 max-sm:w-28 hover:scale-105 transition"
+                              loading="lazy"
+                              onError={(e) => {
+                                e.target.onerror = null;
+                                e.target.style.display = "none";
+                              }}
                             />
-                            {canais[canal].nome == "Globo" && (
-                              <span className="!w-8 !h-8 bg-yellow-400 rounded-full absolute inset-0 justify-self-end self-start text-center font-bold flex items-center justify-center text-sm z-10">
-                                MG
-                              </span>
-                            )}
                           </a>
-                        );
-                      })}
-                    </div>
+                        )
+                      );
+                    })
                   ) : (
                     <p
-                      className={`text-${time.cor} uppercase font-bold text-2xl self-center`}
+                      className={`text-${time.cor} uppercase font-bold text-lg`}
                     >
-                      A definir
+                      Transmissão a confirmar
                     </p>
                   )}
                 </div>
-              </li>
-            );
-          })
+              </div>
+            </li>
+          ))
         ) : (
           <p className="text-center text-gray-500 py-8">
-            Nenhum jogo disponível para esse time.
+            Nenhum jogo agendado para os próximos dias.
           </p>
         )}
       </ul>
-      {jogosDoTime.length > jogosExibidos && (
+
+      {proximosJogos.length > jogosExibidos && (
         <button
           className="bg-black w-auto justify-self-center text-white uppercase rounded-full font-bold px-4 py-2 mb-12 cursor-pointer"
           onClick={() => setJogosExibidos((prev) => prev + 3)}

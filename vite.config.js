@@ -5,5 +5,14 @@ import tailwindcss from "@tailwindcss/vite";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: "/ondevaipassar-teste",
+  base: "/",
+  build: {
+    outDir: "dist",
+    assetsDir: "assets",
+  },
+  server: {
+    fs: {
+      allow: [".."],
+    },
+  },
 });
