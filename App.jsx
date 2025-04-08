@@ -6,6 +6,8 @@ import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import Home from "./pages/Home";
 import TimePage from "./pages/TimePage";
+import Contato from "./pages/Contato";
+import Sobre from "./pages/Sobre";
 
 const App = () => {
   const [selectedTime, setSelectedTime] = useState(null);
@@ -28,6 +30,11 @@ const App = () => {
               />
             }
           />
+          <Route
+            path="/ondevaipassar-teste/contato"
+            element={<Contato />}
+          ></Route>
+          <Route path="/ondevaipassar-teste/sobre" element={<Sobre />}></Route>
         </Routes>
         <Footer selectedTime={selectedTime} />
       </div>

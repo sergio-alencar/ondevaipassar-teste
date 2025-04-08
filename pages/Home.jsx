@@ -30,7 +30,7 @@ const Home = ({ setSelectedTime }) => {
               className="p-4"
               onClick={() => handleTimeSelect(time)}
             >
-              <Link to={`/ondevaipassar-teste/time/${time.nome}`} className="">
+              <Link to={`/ondevaipassar-teste/time/${time.nome}`}>
                 <img
                   src={urlFinal}
                   alt={time.nome}

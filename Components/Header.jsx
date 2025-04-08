@@ -5,6 +5,7 @@ import DropdownMenu from "../Components/DropdownMenu";
 import logoHeader from "/src/assets/images/icones/logo-3.svg";
 import escudo from "/src/assets/images/icones/escudo.svg";
 import times from "./times";
+import { Link } from "react-router-dom";
 
 const Header = ({ selectedTime, setSelectedTime }) => {
   const [headerColor, setHeaderColor] = useState("purple-900");
@@ -153,6 +154,7 @@ const Header = ({ selectedTime, setSelectedTime }) => {
               menu
             </p>
           </button>
+
           <a className="" href="/ondevaipassar-teste">
             <img
               className="w-42 py-4 max-sm:w-32"
@@ -191,10 +193,10 @@ const Header = ({ selectedTime, setSelectedTime }) => {
       >
         <ul className="px-8 py-12 *:uppercase *:font-bold *:text-2xl space-y-4">
           <li>
-            <a href="">Sobre</a>
+            <Link to="/ondevaipassar-teste/sobre">Sobre</Link>
           </li>
           <li>
-            <a href="">Contato</a>
+            <Link to="/ondevaipassar-teste/contato">Contato</Link>
           </li>
         </ul>
       </div>
